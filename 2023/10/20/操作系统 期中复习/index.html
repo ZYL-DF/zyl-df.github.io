@@ -1,0 +1,573 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>操作系统 期中复习（一至四章） | Ichirinko's Blog</title><meta name="keywords" content="操作系统"><meta name="author" content="Ichirinko"><meta name="copyright" content="Ichirinko"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="操作系统概述 - 架构 - 进程 - 线程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="操作系统 期中复习（一至四章）">
+<meta property="og:url" content="https://zyl-df.github.io/2023/10/20/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%20%E6%9C%9F%E4%B8%AD%E5%A4%8D%E4%B9%A0/index.html">
+<meta property="og:site_name" content="Ichirinko&#39;s Blog">
+<meta property="og:description" content="操作系统概述 - 架构 - 进程 - 线程">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/ComputerNetwork/4/202310202352857.jpg">
+<meta property="article:published_time" content="2023-10-19T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-10-19T16:00:00.000Z">
+<meta property="article:author" content="Ichirinko">
+<meta property="article:tag" content="操作系统">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/ComputerNetwork/4/202310202352857.jpg"><link rel="shortcut icon" href="https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/202301142337679.png"><link rel="canonical" href="https://zyl-df.github.io/2023/10/20/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%20%E6%9C%9F%E4%B8%AD%E5%A4%8D%E4%B9%A0/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '操作系统 期中复习（一至四章）',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-10-20 00:00:00'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/img/202209122110798.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">24</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">19</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 开盒</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/ComputerNetwork/4/202310202339949.jpeg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Ichirinko's Blog</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 开盒</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">操作系统 期中复习（一至四章）</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-10-19T16:00:00.000Z" title="发表于 2023-10-20 00:00:00">2023-10-20</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-10-19T16:00:00.000Z" title="更新于 2023-10-20 00:00:00">2023-10-20</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">4.7k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>14分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="操作系统 期中复习（一至四章）"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="一-概述"><a class="header-anchor" href="#一-概述">¶</a>一  概述</h2>
+<h3 id="定义"><a class="header-anchor" href="#定义">¶</a>定义</h3>
+<p>操作系统是管理计算机硬件的程序</p>
+<p>同时是软件的控制基础</p>
+<p>还是计算机用户和计算机硬件的中间层</p>
+<blockquote>
+<p>设计出来的目的是为了执行用户程序、使他们更加方便地解决问题，让计算机系统更加便于使用</p>
+</blockquote>
+<ul>
+<li>资源分配器</li>
+<li>控制程序（程序执行和I\O操作）</li>
+<li>内核（一直运行）</li>
+</ul>
+<h3 id="驱动方式"><a class="header-anchor" href="#驱动方式">¶</a>驱动方式</h3>
+<p>操作系统由中断驱动</p>
+<p>外部的中断主要是外设发出的中断请求，如IO等</p>
+<p>内部中断通常是不可预料的系统错误等，这类错误通常不可避免</p>
+<h3 id="计算机系统架构"><a class="header-anchor" href="#计算机系统架构">¶</a>计算机系统架构</h3>
+<ul>
+<li>单核</li>
+<li>多核</li>
+<li>集群</li>
+</ul>
+<h3 id="操作系统结构"><a class="header-anchor" href="#操作系统结构">¶</a>操作系统结构</h3>
+<h4 id="多道程序设计-multiprogramming"><a class="header-anchor" href="#多道程序设计-multiprogramming">¶</a>多道程序设计 multiprogramming</h4>
+<ul>
+<li>允许多个进程任务同时在内存中，由CPU决定运行哪个进程，完成哪个任务</li>
+<li>这样做可以减少CPU的空闲时间，提高系统效率</li>
+<li>需要作业调度机制进行道的分配</li>
+</ul>
+<blockquote>
+<p>作业调度：把磁盘中的程序调入内存，准备执行</p>
+</blockquote>
+<h4 id="多道设计中系统需要的特性"><a class="header-anchor" href="#多道设计中系统需要的特性">¶</a>多道设计中系统需要的特性</h4>
+<ul>
+<li>IO读写周期由系统决定</li>
+<li>内存分配由系统决定</li>
+<li>CPU计划进程的执行</li>
+<li>设备的调度</li>
+</ul>
+<h4 id="分时-timesharing"><a class="header-anchor" href="#分时-timesharing">¶</a>分时 timesharing</h4>
+<p>CPU执行一个进程一个时间片后，根据特定的标识，会选择一个进程开始执行。这种不断切换执行过于频繁，导致可以认为是同时多个进程在进行，需要进程调度</p>
+<blockquote>
+<p>进程调度：决定当前哪个进程在CPU上执行</p>
+</blockquote>
+<h4 id="实时-real-time"><a class="header-anchor" href="#实时-real-time">¶</a>实时 real-time</h4>
+<p>实时操作系统是相对于分时操作系统的一个概念。</p>
+<p>在一个分时操作系统中，计算机资源会被平均地分配给系统内所有的工作，各项任务需要花多长时间来完成，这一点并不重要;</p>
+<p>而在一个实时操作系统之中，最关注的是每个任务在多长时间内可以完成。简单地说，实时和分时操作系统最大的不同在于 “时限(deadline)”这个概念。</p>
+<h3 id="批处理系统-batch-os"><a class="header-anchor" href="#批处理系统-batch-os">¶</a>批处理系统 batch os</h3>
+<p>早期的一种大型机用操作系统。可对用户作业成批处理，期间无需用户干预，分为单道批处理系统和多道批处理系统</p>
+<blockquote>
+<p>批处理系统提高工作效率，而分时系统提高人机交互效率</p>
+</blockquote>
+<hr>
+<h3 id="进程调度"><a class="header-anchor" href="#进程调度">¶</a>进程调度</h3>
+<p>进程是一个程序的执行状态</p>
+<p>是一个动态实体，需要资源进行它的任务</p>
+<blockquote>
+<p>CPU、IO、内存、数据</p>
+</blockquote>
+<h4 id="操作系统与进程的关系"><a class="header-anchor" href="#操作系统与进程的关系">¶</a>操作系统与进程的关系</h4>
+<ul>
+<li>创建、删除进程</li>
+<li>暂停、恢复进程</li>
+<li>为进程的同步、通信和死锁提供解决机制</li>
+</ul>
+<hr>
+<h2 id="二-操作系统结构体系"><a class="header-anchor" href="#二-操作系统结构体系">¶</a>二   操作系统结构体系</h2>
+<h3 id="系统调用"><a class="header-anchor" href="#系统调用">¶</a>系统调用</h3>
+<p>操作系统提供了一个接口，即系统调用，允许用户程序通过接口与操作系统进行交互</p>
+<ul>
+<li>进程控制</li>
+<li>文件管理</li>
+<li>设备管理</li>
+<li>通信</li>
+<li>系统信息获得</li>
+</ul>
+<h3 id="通信"><a class="header-anchor" href="#通信">¶</a>通信</h3>
+<p>进程管理内存，不同进程间内存不能互相访问，需要通过共享内存或消息传递来进行信息交换</p>
+<p><strong>程序和操作系统之间如何传递参数？</strong></p>
+<ul>
+<li>消息传递</li>
+<li>共享内存</li>
+</ul>
+<h3 id="引导程序"><a class="header-anchor" href="#引导程序">¶</a>引导程序</h3>
+<p>初始引导过程主要由计算机的<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/BIOS">BIOS</a>完成。<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/BIOS">BIOS</a>是固化在<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/ROM/12424911">ROM</a>中的基本<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E7%B3%BB%E7%BB%9F">输入输出系统</a>（Basic Input/Output System），其内容存储在主板<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/ROM/12424911">ROM</a>芯片中，主要功能是为内核运作环境进行预先检测。</p>
+<p>其功能主要包括中断服务程序、系统设置程序、上电自检和系统启动自举程序等</p>
+<p>BIOS（Basic Input－Output System)基本输入输出系统,其内容集成在微机主板上的一个ROM芯片上，主要保存着有关微机系统最重要的基本输入输出程序，系统信息设置、开机上电自检程序和系统启动自举程序等。</p>
+<p>微机部件配置记录是放在一块可读写的 CMOS RAM 芯片中的，主要保存着系统基本情况、CPU特性、软硬盘驱动器、显示器、键盘等部件的信息。</p>
+<p>CMOS RAM芯片由系统通过一块后备电池供电，无论是在关机状态中，还是遇到系统掉电情况，CMOS信息都不会丢失。</p>
+<p>在 BIOS ROM芯片中装有&quot;系统设置程序&quot;，主要用来设置CMOS RAM中的各项参数</p>
+<hr>
+<h2 id="三-进程"><a class="header-anchor" href="#三-进程">¶</a>三   进程</h2>
+<h3 id="进程的定义与构成"><a class="header-anchor" href="#进程的定义与构成">¶</a>进程的定义与构成</h3>
+<p>进程是一段运行中的程序</p>
+<p>包含以下几方面</p>
+<ul>
+<li>堆栈</li>
+<li>程序计数器PC</li>
+<li>数据</li>
+</ul>
+<h3 id="进程的状态与转换"><a class="header-anchor" href="#进程的状态与转换">¶</a>进程的状态与转换</h3>
+<p><img src="https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/Mao/Exam/202309200843822.png" alt="image-20230920084311751"></p>
+<ul>
+<li>
+<p>new 进程被创建</p>
+</li>
+<li>
+<p>running 进程正在运行</p>
+<blockquote>
+<p>通过<strong>时钟中断</strong>（时间片）改变状态到ready态</p>
+</blockquote>
+</li>
+<li>
+<p>waiting 进程正在等待</p>
+<blockquote>
+<p>从等待态也可以直接转换到终止态</p>
+</blockquote>
+</li>
+<li>
+<p>ready 进程就绪</p>
+</li>
+<li>
+<p>terminated 进程终止</p>
+</li>
+</ul>
+<blockquote>
+<p>从等待态waiting回到就绪态ready，需要发出I/O中断信号</p>
+</blockquote>
+<h3 id="进程调度队列"><a class="header-anchor" href="#进程调度队列">¶</a>进程调度队列</h3>
+<ul>
+<li>工作队列</li>
+<li>准备队列</li>
+<li>设备队列</li>
+</ul>
+<blockquote>
+<p>进程可以在已有的队列中不断转移</p>
+</blockquote>
+<h3 id="上下文切换-Context-Switch"><a class="header-anchor" href="#上下文切换-Context-Switch">¶</a>上下文切换 Context Switch</h3>
+<p>需要硬件支持</p>
+<p>切换需要保存旧进程状态，载入新进程状态</p>
+<p>切换时间是经常性开支（浪费），系统切换时无法工作</p>
+<h3 id="调度-schedulers"><a class="header-anchor" href="#调度-schedulers">¶</a>调度 schedulers</h3>
+<h4 id="长期调度程序（进程调度）"><a class="header-anchor" href="#长期调度程序（进程调度）">¶</a>长期调度程序（进程调度）</h4>
+<p>不会很频繁地被唤起</p>
+<p>控制多道程序的道数</p>
+<h4 id="短期调度程序（CPU调度）"><a class="header-anchor" href="#短期调度程序（CPU调度）">¶</a>短期调度程序（CPU调度）</h4>
+<p>会很频繁地被唤起</p>
+<p>控制CPU调入哪一个进程</p>
+<h3 id="父子进程、进程的创建、等待与停止"><a class="header-anchor" href="#父子进程、进程的创建、等待与停止">¶</a>父子进程、进程的创建、等待与停止</h3>
+<p>父进程创建（linux中是fork）子进程，以此下去会形成一个进程树</p>
+<h4 id="资源共享"><a class="header-anchor" href="#资源共享">¶</a>资源共享</h4>
+<p>有三类情况</p>
+<ul>
+<li>父子进程共享全部资源</li>
+<li>父进程共享一部分资源给子进程</li>
+<li>父子进程不共享资源</li>
+</ul>
+<h4 id="执行（exec）"><a class="header-anchor" href="#执行（exec）">¶</a>执行（exec）</h4>
+<ul>
+<li>父子进程同时执行</li>
+<li>父进程等待子进程结束（wait），或父进程主动停止子进程（abort）</li>
+<li>父进程结束时，若还存在活动子进程也需要结束（子进程不能脱离父进程单独存在）</li>
+</ul>
+<h4 id="地址空间"><a class="header-anchor" href="#地址空间">¶</a>地址空间</h4>
+<ul>
+<li>子进程复制父进程的地址空间</li>
+<li>子进程有一段程序进行地址空间的加载</li>
+</ul>
+<h4 id="具体代码实现"><a class="header-anchor" href="#具体代码实现">¶</a>具体代码实现</h4>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span> *argv[])</span> </span>&#123;</span><br><span class="line">  <span class="type">pid_t</span> pid;</span><br><span class="line">	pid=fork();</span><br><span class="line">	<span class="keyword">if</span> (pid&lt;<span class="number">0</span>) &#123; <span class="comment">/* error occurred */</span></span><br><span class="line">			<span class="built_in">fprientf</span>(stderr, “Fork failed”); <span class="built_in">exit</span>(<span class="number">1</span>)</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span> (pid==<span class="number">0</span>) &#123; <span class="comment">/* child process */</span> 					      </span><br><span class="line">    	<span class="built_in">exec</span>(“/bin/ls”, “ls”, null);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> &#123; <span class="comment">/* parent process */</span></span><br><span class="line">			<span class="built_in">wait</span>(null);</span><br><span class="line">			<span class="built_in">printf</span>(“Child Complete”); <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 需要注意的是，父子进程的先后执行顺序没有规定，父子进程的输出结果可能会存在多种次序</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>windows下使用<code>CreateProcess()</code>作为<code>fork()</code>的替代，<code>WaitForSingleObject()</code>作为<code>wait()</code>的替代</p>
+</blockquote>
+<h3 id="独立进程与协作进程"><a class="header-anchor" href="#独立进程与协作进程">¶</a>独立进程与协作进程</h3>
+<p>独立进程（Independent process）不能影响其他进程的执行，也不能被其他进程影响</p>
+<p>而协作进程可以影响和被影响</p>
+<ul>
+<li>信息分享</li>
+<li>提高速度</li>
+<li>模块化</li>
+<li>方便</li>
+</ul>
+<hr>
+<h3 id="进程间通信-Interprocess-Communication"><a class="header-anchor" href="#进程间通信-Interprocess-Communication">¶</a>进程间通信 Interprocess Communication</h3>
+<p>进程的通信需要消息系统</p>
+<p>send - 发送 （固定尺寸大小/可变大小）</p>
+<p>receive 接收</p>
+<p>两个进程要通信，需要建立之间的连通信接后交换消息</p>
+<p>能中断通信链接的有物理中断和逻辑中断</p>
+<h4 id="通信方式"><a class="header-anchor" href="#通信方式">¶</a>通信方式</h4>
+<ul>
+<li>消息队列</li>
+<li>共享内存</li>
+</ul>
+<h4 id="消息队列系统"><a class="header-anchor" href="#消息队列系统">¶</a>消息队列系统</h4>
+<p>两个操作原语可以用于消息队列系统</p>
+<p><code>send(process_name,message)</code></p>
+<p><code>receive(process_name,message)</code></p>
+<h5 id="原语-Primitives"><a class="header-anchor" href="#原语-Primitives">¶</a>原语 Primitives</h5>
+<p>执行过程不可中断</p>
+<h5 id="命名-naming"><a class="header-anchor" href="#命名-naming">¶</a>命名 naming</h5>
+<p>两个进程的直接通信，可以给进程命名（symmetry）以区分进程，也可以不命名（asymmetry）而改用序号id的方式区分进程，但两者都有缺点，即更改命名会造成原进程的目标丢失</p>
+<h5 id="消息盒-mailbox"><a class="header-anchor" href="#消息盒-mailbox">¶</a>消息盒 mailbox</h5>
+<p>两个进程可以通过消息盒实现间接通信</p>
+<h5 id="同步-Synchronization"><a class="header-anchor" href="#同步-Synchronization">¶</a>同步 Synchronization</h5>
+<p>阻塞Blocking - 同步Synchronization</p>
+<p>非阻塞Non-blocking - 异步asynchronous</p>
+<p>发送和接收原语可能是阻塞的，也可能是非阻塞的</p>
+<p>阻塞发送意味着发送方必须等到已发送消息被对方接收才能继续下一次发送，阻塞接收同理，此时生产者 - 消费者问题将不会发生</p>
+<h5 id="缓冲区"><a class="header-anchor" href="#缓冲区">¶</a>缓冲区</h5>
+<p>无界缓冲区 - 理论上可能，实际上不可能</p>
+<p>有界缓冲区 - 如果满了就需要等待</p>
+<hr>
+<h4 id="共享内存系统"><a class="header-anchor" href="#共享内存系统">¶</a>共享内存系统</h4>
+<p>多个进程之间共享一段内存段，进程可以通过读写这一段内存段以实现消息的通信。</p>
+<p>但是，数据的形式和位置由进程决定而不由操作系统决定，这会带来一些问题。</p>
+<h5 id="生产者-消费者问题"><a class="header-anchor" href="#生产者-消费者问题">¶</a>生产者 - 消费者问题</h5>
+<p>对无界的缓冲区，不需要考虑</p>
+<p>对有界的缓冲区，生产者生产的信息会被消费者消费，这会带来一些问题，如生产者生产信息导致缓冲区溢出，或消费者在没有信息的缓冲区中消费。要求正确的完成生产者 - 消费者问题，需要共享内存中一些操作的实现。</p>
+<p>有界的缓冲区可以看成是一个环形的缓冲圈，设置<code>in</code>和<code>out</code>指针，指代生产位置与消费位置</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> BUFFER_SIZE 10</span></span><br><span class="line">Typedef <span class="keyword">struct</span> &#123; </span><br><span class="line">  . ..</span><br><span class="line">&#125; item;</span><br><span class="line">item buffer[BUFFER_SIZE]; </span><br><span class="line"><span class="type">int</span> in = <span class="number">0</span>;</span><br><span class="line"><span class="type">int</span> out = <span class="number">0</span>;</span><br><span class="line"><span class="comment">// in: 当前要生产的位置</span></span><br><span class="line"><span class="comment">// out: 当前要消费的位置</span></span><br><span class="line"><span class="comment">// in = out 表示缓冲区为空</span></span><br><span class="line"><span class="comment">// ((in + 1) % BUFFER_SIZE) = out 表示缓冲区已满</span></span><br></pre></td></tr></table></figure>
+<p>生产者：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">item next produced;</span><br><span class="line"><span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">	<span class="comment">/* produce an item in next produced */</span></span><br><span class="line">	<span class="keyword">while</span> (((in + <span class="number">1</span>) % BUFFER SIZE) == out) &#123;</span><br><span class="line">    <span class="comment">// buffer is full, do nothing</span></span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">	buffer[in] = next produced;</span><br><span class="line">	in = (in + <span class="number">1</span>) % BUFFER SIZE; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>消费者：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">item next consumed;</span><br><span class="line"><span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">	<span class="keyword">while</span> (in == out) &#123;</span><br><span class="line">    <span class="comment">/* buffer is empty, do nothing */</span></span><br><span class="line">  &#125;</span><br><span class="line">	next consumed = buffer[out];</span><br><span class="line">	out = (out + <span class="number">1</span>) % BUFFER SIZE;</span><br><span class="line">	<span class="comment">/* consume the item in next consumed */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可以看出，这个缓冲区的缓冲空间实际上只有BUFFERSIZE - 1，因为in与out指针重叠已经代表缓冲区为空</p>
+<h3 id="总结：操作系统与进程间的通信方式"><a class="header-anchor" href="#总结：操作系统与进程间的通信方式">¶</a>总结：操作系统与进程间的通信方式</h3>
+<ul>
+<li>
+<p>共享内存</p>
+<p>能够很容易控制容量，速度快，但无法自动同步。所以需要额外保持同步，比如一个进程在写的时候，另一个进程要注意读写的问题</p>
+</li>
+<li>
+<p>消息队列</p>
+<p>容量受到系统限制，且要注意第一次读的时候，要考虑上一次没有读完数据的问题</p>
+</li>
+<li>
+<p>管道通信</p>
+<p>无名管道Pipe： 速度慢，容量有限，只有父子进程能通讯</p>
+<p>命名管道FIFO：FIFO可以在无关的进程之间交换数据，与无名管道不同。FIFO有路径名与之相关联，它以一种特殊设备文件形式存在于文件系统</p>
+</li>
+<li>
+<p>socket</p>
+</li>
+<li>
+<p>信号量</p>
+<p>不能传递复杂消息，只能用来同步</p>
+</li>
+<li>
+<p>进程通信</p>
+<p>直接通信</p>
+<p>非直接通信：mailbox</p>
+</li>
+</ul>
+<hr>
+<h2 id="四-线程"><a class="header-anchor" href="#四-线程">¶</a>四   线程</h2>
+<h3 id="定义-v2"><a class="header-anchor" href="#定义-v2">¶</a>定义</h3>
+<p>线程是CPU能利用的最基本单元</p>
+<p>与进程类似，它同样包括：</p>
+<ul>
+<li>程序计数器PC</li>
+<li>线程编号id</li>
+<li>寄存器集</li>
+<li>栈</li>
+</ul>
+<h3 id="共享量"><a class="header-anchor" href="#共享量">¶</a>共享量</h3>
+<p>线程会与同个进程下的其他线程共享</p>
+<ul>
+<li>相同的代码段</li>
+<li>相同的数据段</li>
+<li>其他相同的操作系统资源，比如打开的文件和信号</li>
+</ul>
+<h3 id="单线程进程与多线程进程"><a class="header-anchor" href="#单线程进程与多线程进程">¶</a>单线程进程与多线程进程</h3>
+<p>一些重要的系统进程只允许单一线程的创建与保持，称这种进程为<strong>单线程进程</strong></p>
+<p>现在的操作系统大多支持<strong>多线程进程</strong></p>
+<h3 id="多线程的优势"><a class="header-anchor" href="#多线程的优势">¶</a>多线程的优势</h3>
+<ul>
+<li>
+<p><strong>高反应性</strong></p>
+<p>可以快速反应，响应性能高</p>
+</li>
+<li>
+<p><strong>资源共享</strong></p>
+<p>不需要诸如进程的共享内存和消息队列，线程天然共享进程的操作系统资源，一个应用可以同时在同一个地址空间应用多线程，以利用代码和数据</p>
+</li>
+<li>
+<p><strong>更加经济实惠</strong></p>
+<p>创建进程开销大，而创建线程开销更小，更加经济实惠</p>
+</li>
+<li>
+<p><strong>可扩展性强</strong></p>
+<p>多处理器体系结构的利用 Utilization of MP Architectures</p>
+<p>若为多进程处理器架构的操作系统，多线程可以在多个进程核心上平行运行，提高性能</p>
+</li>
+</ul>
+<h3 id="多线程模型"><a class="header-anchor" href="#多线程模型">¶</a>多线程模型</h3>
+<p>指的是<strong>用户线程</strong>对<strong>内核线程</strong></p>
+<h4 id="多对一模型-Many-to-One"><a class="header-anchor" href="#多对一模型-Many-to-One">¶</a>多对一模型 Many to One</h4>
+<p>早期Java使用的就是多对一模型，并不需要操作系统，而是只需要Java虚拟机</p>
+<p>不支持内核线程的系统通常使用多对一模型</p>
+<h4 id="一对一模型-One-to-One"><a class="header-anchor" href="#一对一模型-One-to-One">¶</a>一对一模型 One to One</h4>
+<p>现在的windows，linux都支持</p>
+<h4 id="多对多模型-Many-to-Many"><a class="header-anchor" href="#多对多模型-Many-to-Many">¶</a>多对多模型 Many to Many</h4>
+<p>多对多没有要求用户线程数等于内核线程数</p>
+<h3 id="操作系统下的线程"><a class="header-anchor" href="#操作系统下的线程">¶</a>操作系统下的线程</h3>
+<h4 id="PThread"><a class="header-anchor" href="#PThread">¶</a>PThread</h4>
+<p>UNIX系统通用的线程标准，是一种POSIX标准的API库</p>
+<p>使用</p>
+<ul>
+<li><code>pthread_create()</code>创建线程</li>
+<li><code>pthread_join()</code>等待线程结束</li>
+<li><code>pthread_exit()</code>退出线程</li>
+</ul>
+<h4 id="Windows-XP-Thread"><a class="header-anchor" href="#Windows-XP-Thread">¶</a>Windows XP Thread</h4>
+<p>一对一模型</p>
+<p>每个线程包含</p>
+<ul>
+<li>线程id</li>
+<li>寄存器集合</li>
+<li>分开的用户栈和内核栈</li>
+<li>私有数据存储空间</li>
+</ul>
+<p>一般来说，以上的内容被称为<strong>线程的上下文</strong></p>
+<p>使用</p>
+<ul>
+<li><code>CreateThread()</code> 创建线程</li>
+<li><code>WaitForSingleObject()</code>或<code>WaitForMultipleObjects()</code>等待线程</li>
+<li><code>CloseHandle()</code>结束线程</li>
+</ul>
+<p>​</p>
+<h4 id="Linux-Thread"><a class="header-anchor" href="#Linux-Thread">¶</a>Linux Thread</h4>
+<p>Linux一般称线程为task（任务）</p>
+<p>使用<code>clone()</code>创建线程，同时可以共享父进程的地址空间</p>
+<h4 id="Java-Thread"><a class="header-anchor" href="#Java-Thread">¶</a>Java Thread</h4>
+<p>Java线程通过JVM管理</p>
+<p>可以通过继承Thread类或实现Runnable接口实现</p>
+<p><img src="https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/Mao/Exam/202310202330506.png" alt="屏幕快照 2023-10-20 23.29.25"></p>
+<h3 id="进程和线程：概念、区别与联系"><a class="header-anchor" href="#进程和线程：概念、区别与联系">¶</a>进程和线程：概念、区别与联系</h3>
+<h4 id="概念"><a class="header-anchor" href="#概念">¶</a>概念</h4>
+<p>进程是一个具有独立功能的程序关于某个数据集合的依次运行活动。 是系统进行资源分配和调度的独立单位，也是基本的执行单元。是一个动态的概念，是一个活动的实体。它不只是程序的代码，还包括当前的活动。</p>
+<p>进程结构特征： 由程序、数据和进程控制块三部分组成。具有 独立性、并发性、异步性和动态性的特点。</p>
+<p>进程的概念主要有两点：</p>
+<ul>
+<li>
+<p>**进程是一个实体。**每一个进程都有它自己的地址空间，一般情况下，包括文本区域（text region）–存储处理器执行的代码，数据区域（data region）–存储程序执行期间的一些数据变量，堆栈（stack region）–存储动态分配的内存和本地变量及指令。</p>
+</li>
+<li>
+<p>**进程是一个“执行中的程序”。**程序是一个没有生命的实体，只有在运行时处理器才会赋予它生命，才能成为一个活动的实体，我们称其为“进程”。</p>
+</li>
+</ul>
+<blockquote>
+<p>每一个进程都会有一个独一无二的编号，被称为进程标识码，简称PID</p>
+</blockquote>
+<h4 id="进程优点"><a class="header-anchor" href="#进程优点">¶</a>进程优点</h4>
+<ul>
+<li>进程之间相互独立，可以并行执行不同的任务，有更好的安全性和稳定性</li>
+</ul>
+<h4 id="进程缺点"><a class="header-anchor" href="#进程缺点">¶</a>进程缺点</h4>
+<ul>
+<li>进程之间的通信和协作较为困难，进程切换开销较大，需要消耗更多的系统资源</li>
+<li></li>
+</ul>
+<p>线程是进程中的 执行运算的最小单位，是进程中的一个实体，是被系统独立调度和分派的基本单位，线程自己不拥有系统资源，只拥有一点在运行中必不可少的资源（ 程序计数器，一组寄存器和栈），<strong>但它可与同属一个进程的其他线程 共享进程所拥有的全部资源</strong></p>
+<h4 id="线程优点"><a class="header-anchor" href="#线程优点">¶</a>线程优点</h4>
+<ul>
+<li>易于调度。</li>
+<li>提高并发性。通过线程可方便有效地实现并发性。进程可创建多个线程来执行同一个程序的不同部分。</li>
+<li>开销少。创建线程比创建进程要快，所需开销少，占用的资源也少；</li>
+<li>充分发挥多处理器的功能。通过创建多线程进程，每个线程在一个处理器上运行，从而实现应用程序的并发性，使每个处理器都得到充分的运行</li>
+<li>线程之间的通信和协作更加方便，线程切换开销较小，可以更高效地利用系统资源</li>
+</ul>
+<h4 id="线程缺点"><a class="header-anchor" href="#线程缺点">¶</a>线程缺点</h4>
+<ul>
+<li>线程之间共享相同的内存空间，容易出现数据竞争和同步问题，需要使用锁、信号量等机制来解决</li>
+<li>同时，一个线程出现错误可能会影响整个进程的稳定性</li>
+</ul>
+<h4 id="进程与线程的区别"><a class="header-anchor" href="#进程与线程的区别">¶</a>进程与线程的区别</h4>
+<ul>
+<li>
+<p>调度：线程作为处理器调度和分配的基本单位，而进程是作为拥有资源的基本单位</p>
+</li>
+<li>
+<p>并发性：不仅进程之间可以并发执行，同一个进程的多个线程之间也可以并发执行</p>
+</li>
+<li>
+<p>拥有资源：进程是拥有资源的一个独立单位，有自己独立的地址空间；线程不拥有系统资源，但可以访问隶属于进程的资源，共享进程的地址空间、内存空间、地址空间、文件句柄等资源；从概念上来说，进程是一个容器，而线程则是容器内的执行单元</p>
+</li>
+<li>
+<p>系统开销：在创建或撤消进程时，由于系统都要为之分配和回收资源，导致系统的开销明显大于创建或撤消线程时的开销</p>
+</li>
+</ul>
+<h4 id="进程和线程的关系"><a class="header-anchor" href="#进程和线程的关系">¶</a>进程和线程的关系</h4>
+<ul>
+<li>
+<p>二者均可并发执行.</p>
+</li>
+<li>
+<p>线程是指进程内的一个执行单元,也是进程内的可调度实体。一个程序至少有一个进程,一个进程至少有一个线程，一个线程只属于一个进程.</p>
+</li>
+<li>
+<p>资源分配给进程，同一进程的所有线程共享该进程的所有资源。</p>
+</li>
+<li>
+<p>处理机分给线程，即真正在处理机上运行的是线程。</p>
+</li>
+<li>
+<p>线程在执行过程中，需要协作同步。不同进程的线程间要利用消息通信的办法实现同步。进程和线程的主要差别在于它们是不同的操作系统资源管理方式。 进程有独立的地址空间，一个进程崩溃后，在保护模式下不会对其它进程产生影响。而线程只是一个进程中的不同执行路径，线程有自己的堆栈和局部变量，但线程之间没有单独的地址空间， 一个线程死掉就等于整个进程死掉，所以多进程的程序要比多线程的程序健壮，但在进程切换时，耗费资源较大，效率要差一些。但对于一些要求同时进行并且又要共享某些变量的并发操作，只能用线程，不能用进程。</p>
+</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://zyl-df.github.io">Ichirinko</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://zyl-df.github.io/2023/10/20/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%20%E6%9C%9F%E4%B8%AD%E5%A4%8D%E4%B9%A0/">https://zyl-df.github.io/2023/10/20/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%20%E6%9C%9F%E4%B8%AD%E5%A4%8D%E4%B9%A0/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://zyl-df.github.io" target="_blank">Ichirinko's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a></div><div class="post_share"><div class="social-share" data-image="https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/ComputerNetwork/4/202310202352857.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2023/06/11/%E6%AF%9B%E6%A6%82%E5%A4%8D%E4%B9%A0%E6%8F%90%E7%BA%B2(%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%AC%AC%E5%85%AD%E7%AB%A0)/"><img class="next-cover" src="https://raw.githubusercontent.com/ZYL-DF/Pic_res/main/%E5%8D%87%E6%97%97/202210030025125.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">毛概 复习提纲（四至六章）</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/img/202209122110798.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Ichirinko</div><div class="author-info__description">找点乐子做</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">24</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">19</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/ZYL-DF" target="_blank" title="Github"><i class="fab fa-github"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">网站更换了服务器和图床，现在主网址为https://ichirinko.top，备用站为https://zyl-df.github.io</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80-%E6%A6%82%E8%BF%B0"><span class="toc-text">一  概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89"><span class="toc-text">定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A9%B1%E5%8A%A8%E6%96%B9%E5%BC%8F"><span class="toc-text">驱动方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84"><span class="toc-text">计算机系统架构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84"><span class="toc-text">操作系统结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%9A%E9%81%93%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-multiprogramming"><span class="toc-text">多道程序设计 multiprogramming</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%9A%E9%81%93%E8%AE%BE%E8%AE%A1%E4%B8%AD%E7%B3%BB%E7%BB%9F%E9%9C%80%E8%A6%81%E7%9A%84%E7%89%B9%E6%80%A7"><span class="toc-text">多道设计中系统需要的特性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%86%E6%97%B6-timesharing"><span class="toc-text">分时 timesharing</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9E%E6%97%B6-real-time"><span class="toc-text">实时 real-time</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%B9%E5%A4%84%E7%90%86%E7%B3%BB%E7%BB%9F-batch-os"><span class="toc-text">批处理系统 batch os</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E8%B0%83%E5%BA%A6"><span class="toc-text">进程调度</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B8%8E%E8%BF%9B%E7%A8%8B%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-text">操作系统与进程的关系</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84%E4%BD%93%E7%B3%BB"><span class="toc-text">二   操作系统结构体系</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8"><span class="toc-text">系统调用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E4%BF%A1"><span class="toc-text">通信</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%95%E5%AF%BC%E7%A8%8B%E5%BA%8F"><span class="toc-text">引导程序</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89-%E8%BF%9B%E7%A8%8B"><span class="toc-text">三   进程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E7%9A%84%E5%AE%9A%E4%B9%89%E4%B8%8E%E6%9E%84%E6%88%90"><span class="toc-text">进程的定义与构成</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E7%9A%84%E7%8A%B6%E6%80%81%E4%B8%8E%E8%BD%AC%E6%8D%A2"><span class="toc-text">进程的状态与转换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E8%B0%83%E5%BA%A6%E9%98%9F%E5%88%97"><span class="toc-text">进程调度队列</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8A%E4%B8%8B%E6%96%87%E5%88%87%E6%8D%A2-Context-Switch"><span class="toc-text">上下文切换 Context Switch</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B0%83%E5%BA%A6-schedulers"><span class="toc-text">调度 schedulers</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%95%BF%E6%9C%9F%E8%B0%83%E5%BA%A6%E7%A8%8B%E5%BA%8F%EF%BC%88%E8%BF%9B%E7%A8%8B%E8%B0%83%E5%BA%A6%EF%BC%89"><span class="toc-text">长期调度程序（进程调度）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9F%AD%E6%9C%9F%E8%B0%83%E5%BA%A6%E7%A8%8B%E5%BA%8F%EF%BC%88CPU%E8%B0%83%E5%BA%A6%EF%BC%89"><span class="toc-text">短期调度程序（CPU调度）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%88%B6%E5%AD%90%E8%BF%9B%E7%A8%8B%E3%80%81%E8%BF%9B%E7%A8%8B%E7%9A%84%E5%88%9B%E5%BB%BA%E3%80%81%E7%AD%89%E5%BE%85%E4%B8%8E%E5%81%9C%E6%AD%A2"><span class="toc-text">父子进程、进程的创建、等待与停止</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%B5%84%E6%BA%90%E5%85%B1%E4%BA%AB"><span class="toc-text">资源共享</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%A7%E8%A1%8C%EF%BC%88exec%EF%BC%89"><span class="toc-text">执行（exec）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9C%B0%E5%9D%80%E7%A9%BA%E9%97%B4"><span class="toc-text">地址空间</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B7%E4%BD%93%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="toc-text">具体代码实现</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8B%AC%E7%AB%8B%E8%BF%9B%E7%A8%8B%E4%B8%8E%E5%8D%8F%E4%BD%9C%E8%BF%9B%E7%A8%8B"><span class="toc-text">独立进程与协作进程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1-Interprocess-Communication"><span class="toc-text">进程间通信 Interprocess Communication</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%9A%E4%BF%A1%E6%96%B9%E5%BC%8F"><span class="toc-text">通信方式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E7%B3%BB%E7%BB%9F"><span class="toc-text">消息队列系统</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8E%9F%E8%AF%AD-Primitives"><span class="toc-text">原语 Primitives</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%91%BD%E5%90%8D-naming"><span class="toc-text">命名 naming</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%B6%88%E6%81%AF%E7%9B%92-mailbox"><span class="toc-text">消息盒 mailbox</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%90%8C%E6%AD%A5-Synchronization"><span class="toc-text">同步 Synchronization</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%BC%93%E5%86%B2%E5%8C%BA"><span class="toc-text">缓冲区</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B1%E4%BA%AB%E5%86%85%E5%AD%98%E7%B3%BB%E7%BB%9F"><span class="toc-text">共享内存系统</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%94%9F%E4%BA%A7%E8%80%85-%E6%B6%88%E8%B4%B9%E8%80%85%E9%97%AE%E9%A2%98"><span class="toc-text">生产者 - 消费者问题</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93%EF%BC%9A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B8%8E%E8%BF%9B%E7%A8%8B%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1%E6%96%B9%E5%BC%8F"><span class="toc-text">总结：操作系统与进程间的通信方式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B-%E7%BA%BF%E7%A8%8B"><span class="toc-text">四   线程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89-v2"><span class="toc-text">定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B1%E4%BA%AB%E9%87%8F"><span class="toc-text">共享量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%95%E7%BA%BF%E7%A8%8B%E8%BF%9B%E7%A8%8B%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B%E8%BF%9B%E7%A8%8B"><span class="toc-text">单线程进程与多线程进程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%9A%84%E4%BC%98%E5%8A%BF"><span class="toc-text">多线程的优势</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%A8%A1%E5%9E%8B"><span class="toc-text">多线程模型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%9A%E5%AF%B9%E4%B8%80%E6%A8%A1%E5%9E%8B-Many-to-One"><span class="toc-text">多对一模型 Many to One</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%80%E5%AF%B9%E4%B8%80%E6%A8%A1%E5%9E%8B-One-to-One"><span class="toc-text">一对一模型 One to One</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%9A%E5%AF%B9%E5%A4%9A%E6%A8%A1%E5%9E%8B-Many-to-Many"><span class="toc-text">多对多模型 Many to Many</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B8%8B%E7%9A%84%E7%BA%BF%E7%A8%8B"><span class="toc-text">操作系统下的线程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#PThread"><span class="toc-text">PThread</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Windows-XP-Thread"><span class="toc-text">Windows XP Thread</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Linux-Thread"><span class="toc-text">Linux Thread</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Java-Thread"><span class="toc-text">Java Thread</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E5%92%8C%E7%BA%BF%E7%A8%8B%EF%BC%9A%E6%A6%82%E5%BF%B5%E3%80%81%E5%8C%BA%E5%88%AB%E4%B8%8E%E8%81%94%E7%B3%BB"><span class="toc-text">进程和线程：概念、区别与联系</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5"><span class="toc-text">概念</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E4%BC%98%E7%82%B9"><span class="toc-text">进程优点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E7%BC%BA%E7%82%B9"><span class="toc-text">进程缺点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E4%BC%98%E7%82%B9"><span class="toc-text">线程优点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E7%BC%BA%E7%82%B9"><span class="toc-text">线程缺点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">进程与线程的区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E5%92%8C%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-text">进程和线程的关系</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2023/10/20/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%20%E6%9C%9F%E4%B8%AD%E5%A4%8D%E4%B9%A0/" title="操作系统 期中复习（一至四章）"><img src="https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/ComputerNetwork/4/202310202352857.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="操作系统 期中复习（一至四章）"/></a><div class="content"><a class="title" href="/2023/10/20/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%20%E6%9C%9F%E4%B8%AD%E5%A4%8D%E4%B9%A0/" title="操作系统 期中复习（一至四章）">操作系统 期中复习（一至四章）</a><time datetime="2023-10-19T16:00:00.000Z" title="发表于 2023-10-20 00:00:00">2023-10-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/06/11/%E6%AF%9B%E6%A6%82%E5%A4%8D%E4%B9%A0%E6%8F%90%E7%BA%B2(%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%AC%AC%E5%85%AD%E7%AB%A0)/" title="毛概 复习提纲（四至六章）"><img src="https://raw.githubusercontent.com/ZYL-DF/Pic_res/main/%E5%8D%87%E6%97%97/202210030025125.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="毛概 复习提纲（四至六章）"/></a><div class="content"><a class="title" href="/2023/06/11/%E6%AF%9B%E6%A6%82%E5%A4%8D%E4%B9%A0%E6%8F%90%E7%BA%B2(%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%AC%AC%E5%85%AD%E7%AB%A0)/" title="毛概 复习提纲（四至六章）">毛概 复习提纲（四至六章）</a><time datetime="2023-06-10T16:00:00.000Z" title="发表于 2023-06-11 00:00:00">2023-06-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/06/10/%E6%AF%9B%E6%A6%82%E5%A4%8D%E4%B9%A0%E6%8F%90%E7%BA%B2(%E7%AC%AC%E4%B8%80%E7%AB%A0-%E7%AC%AC%E4%B8%89%E7%AB%A0)/" title="毛概 复习提纲（一至三章）"><img src="https://raw.githubusercontent.com/ZYL-DF/Pic_res/main/%E5%8D%87%E6%97%97/202210030025125.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="毛概 复习提纲（一至三章）"/></a><div class="content"><a class="title" href="/2023/06/10/%E6%AF%9B%E6%A6%82%E5%A4%8D%E4%B9%A0%E6%8F%90%E7%BA%B2(%E7%AC%AC%E4%B8%80%E7%AB%A0-%E7%AC%AC%E4%B8%89%E7%AB%A0)/" title="毛概 复习提纲（一至三章）">毛概 复习提纲（一至三章）</a><time datetime="2023-06-09T16:00:00.000Z" title="发表于 2023-06-10 00:00:00">2023-06-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/04/23/%E8%AE%A1%E7%BD%91%20%E7%AC%AC%E5%9B%9B%E8%AE%B2%20%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82%203.14%20-%203.28/" title="计网 第四讲 数据链路层(3.14-3.28)"><img src="https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/ComputerNetwork/4/202304250034505.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="计网 第四讲 数据链路层(3.14-3.28)"/></a><div class="content"><a class="title" href="/2023/04/23/%E8%AE%A1%E7%BD%91%20%E7%AC%AC%E5%9B%9B%E8%AE%B2%20%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82%203.14%20-%203.28/" title="计网 第四讲 数据链路层(3.14-3.28)">计网 第四讲 数据链路层(3.14-3.28)</a><time datetime="2023-04-22T16:00:00.000Z" title="发表于 2023-04-23 00:00:00">2023-04-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/04/22/%E8%AE%A1%E7%BD%91%20%E7%AC%AC%E4%B8%89%E8%AE%B2%20%E7%89%A9%E7%90%86%E5%B1%82%202023.3.3+3.7+3.10+3.14/" title="计网 第三讲 物理层 (2023.3.3-3.14)"><img src="https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/ComputerNetwork/4/202304250034505.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="计网 第三讲 物理层 (2023.3.3-3.14)"/></a><div class="content"><a class="title" href="/2023/04/22/%E8%AE%A1%E7%BD%91%20%E7%AC%AC%E4%B8%89%E8%AE%B2%20%E7%89%A9%E7%90%86%E5%B1%82%202023.3.3+3.7+3.10+3.14/" title="计网 第三讲 物理层 (2023.3.3-3.14)">计网 第三讲 物理层 (2023.3.3-3.14)</a><time datetime="2023-04-21T16:00:00.000Z" title="发表于 2023-04-22 00:00:00">2023-04-22</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/ComputerNetwork/4/202310202339949.jpeg')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Ichirinko</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text"><a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/""><span>粤ICP备2023003597号</span></a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex/dist/contrib/copy-tex.min.js"></script><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script></div><script defer="defer" id="fluttering_ribbon" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html><div id="sakana-widget" style="position:fixed;bottom:10px;right:10px;"></div><script>function initSakanaWidget() {
+new SakanaWidget().mount('#sakana-widget');
+}</script><script async="" onload="initSakanaWidget()" src="https://cdn.jsdelivr.net/npm/sakana-widget@2.2.1/lib/sakana.min.js"></script>
