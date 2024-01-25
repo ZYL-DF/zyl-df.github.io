@@ -1,26 +1,10 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>晨光夕忆 ——— 基于3DSMax以及Arduino的自动化绷带包扎机 | Ichirinko's Blog</title><meta name="keywords" content="编程,单片机"><meta name="author" content="Ichirinko"><meta name="copyright" content="Ichirinko"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="take care of yourself">
-<meta property="og:type" content="article">
-<meta property="og:title" content="晨光夕忆 ——— 基于3DSMax以及Arduino的自动化绷带包扎机">
-<meta property="og:url" content="https://ichirinko.top/2022/09/17/%E5%9F%BA%E4%BA%8E3DSMAX%E4%BB%A5%E5%8F%8AArduino%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8C%96%E7%BB%B7%E5%B8%A6%E5%8C%85%E6%89%8E%E6%9C%BA/index.html">
-<meta property="og:site_name" content="Ichirinko&#39;s Blog">
-<meta property="og:description" content="take care of yourself">
-<meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/2/202209181200620.png">
-<meta property="article:published_time" content="2022-09-16T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-09-16T16:00:00.000Z">
-<meta property="article:author" content="Ichirinko">
-<meta property="article:tag" content="新活">
-<meta property="article:tag" content="3DSMax">
-<meta property="article:tag" content="Arduino">
-<meta property="article:tag" content="科创">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/2/202209181200620.png"><link rel="shortcut icon" href="https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/202301142337679.png"><link rel="canonical" href="https://ichirinko.top/2022/09/17/%E5%9F%BA%E4%BA%8E3DSMAX%E4%BB%A5%E5%8F%8AArduino%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8C%96%E7%BB%B7%E5%B8%A6%E5%8C%85%E6%89%8E%E6%9C%BA/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>晨光夕忆 ——— 基于3DSMax以及Arduino的自动化绷带包扎机 | Ichirinko's Blog</title><meta name="author" content="Ichirinko"><meta name="copyright" content="Ichirinko"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="take care of yourself"><link rel="shortcut icon" href="https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/202301142337679.png"><link rel="canonical" href="https://ichirinko.top/2022/09/17/%E5%9F%BA%E4%BA%8E3DSMAX%E4%BB%A5%E5%8F%8AArduino%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8C%96%E7%BB%B7%E5%B8%A6%E5%8C%85%E6%89%8E%E6%9C%BA/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
   root: '/',
-  algolia: undefined,
+  algolia: {"appId":"SOG1NOH84L","apiKey":"ed3e8c05dd5bb70c4029fcc40dceaf4a","indexName":"ichirinko_index","hits":{"per_page":6},"languages":{"input_placeholder":"搜索文章","hits_empty":"找不到您查询的内容：${query}","hits_stats":"找到 ${hits} 条结果，用时 ${time} 毫秒"}},
   localSearch: undefined,
   translate: undefined,
   noticeOutdate: undefined,
-  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
   copy: {
     success: '复制成功',
     error: '复制错误',
@@ -31,7 +15,7 @@
     post: false
   },
   runtime: '天',
-  date_suffix: {
+  dateSuffix: {
     just: '刚刚',
     min: '分钟前',
     hour: '小时前',
@@ -41,15 +25,18 @@
   copyright: undefined,
   lightbox: 'fancybox',
   Snackbar: undefined,
-  source: {
-    justifiedGallery: {
-      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
-      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
-    }
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
   },
   isPhotoFigcaption: false,
   islazyload: false,
-  isAnchor: false
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
 }</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
   title: '晨光夕忆 ——— 基于3DSMax以及Arduino的自动化绷带包扎机',
   isPost: true,
@@ -57,69 +44,77 @@
   isHighlightShrink: false,
   isToc: true,
   postUpdate: '2022-09-17 00:00:00'
-}</script><noscript><style type="text/css">
-  #nav {
-    opacity: 1
-  }
-  .justified-gallery img {
-    opacity: 1
-  }
-
-  #recent-posts time,
-  #post-meta time {
-    display: inline !important
-  }
-</style></noscript><script>(win=>{
-    win.saveToLocal = {
-      set: function setWithExpiry(key, value, ttl) {
-        if (ttl === 0) return
-        const now = new Date()
-        const expiryDay = ttl * 86400000
-        const item = {
-          value: value,
-          expiry: now.getTime() + expiryDay,
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
         }
-        localStorage.setItem(key, JSON.stringify(item))
-      },
-
-      get: function getWithExpiry(key) {
-        const itemStr = localStorage.getItem(key)
-
-        if (!itemStr) {
-          return undefined
-        }
-        const item = JSON.parse(itemStr)
-        const now = new Date()
-
-        if (now.getTime() > item.expiry) {
-          localStorage.removeItem(key)
-          return undefined
-        }
-        return item.value
       }
-    }
-  
-    win.getScript = url => new Promise((resolve, reject) => {
-      const script = document.createElement('script')
-      script.src = url
-      script.async = true
-      script.onerror = reject
-      script.onload = script.onreadystatechange = function() {
-        const loadState = this.readyState
-        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
-        script.onload = script.onreadystatechange = null
-        resolve()
-      }
-      document.head.appendChild(script)
-    })
-  
-      win.activateDarkMode = function () {
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
         document.documentElement.setAttribute('data-theme', 'dark')
         if (document.querySelector('meta[name="theme-color"]') !== null) {
           document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
         }
       }
-      win.activateLightMode = function () {
+      win.activateLightMode = () => {
         document.documentElement.setAttribute('data-theme', 'light')
         if (document.querySelector('meta[name="theme-color"]') !== null) {
           document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
@@ -127,9 +122,9 @@
       }
       const t = saveToLocal.get('theme')
     
-          if (t === 'dark') activateDarkMode()
-          else if (t === 'light') activateLightMode()
-        
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
       const asideStatus = saveToLocal.get('aside-status')
       if (asideStatus !== undefined) {
         if (asideStatus === 'hide') {
@@ -139,13 +134,13 @@
         }
       }
     
-    const detectApple = () => {
-      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
-        document.documentElement.classList.add('apple')
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
       }
-    }
-    detectApple()
-    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/img/202209122110798.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">40</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">22</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 开盒</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/2/202209181200621.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Ichirinko's Blog</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 开盒</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">晨光夕忆 ——— 基于3DSMax以及Arduino的自动化绷带包扎机</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-09-16T16:00:00.000Z" title="发表于 2022-09-17 00:00:00">2022-09-17</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-09-16T16:00:00.000Z" title="更新于 2022-09-17 00:00:00">2022-09-17</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%8A%80%E6%9C%AF%E5%90%91/">技术向</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">4.8k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>14分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="晨光夕忆 ——— 基于3DSMax以及Arduino的自动化绷带包扎机"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>那么一如既往的，这也是老文一篇。高一高二的时候我曾加入过学校的物理科技创新社，并协助其中成员参加了科创大赛。但是不要误会，这篇论文不是我写的，而是由主创herobrine 亲自撰写，所以啊，我是来《锐评》的。</p>
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.1.1"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/img/202209122110798.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">41</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">25</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 开盒</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/2/202209181200621.png')"><nav id="nav"><span id="blog-info"><a href="/" title="Ichirinko's Blog"><span class="site-name">Ichirinko's Blog</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 开盒</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">晨光夕忆 ——— 基于3DSMax以及Arduino的自动化绷带包扎机</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-09-16T16:00:00.000Z" title="发表于 2022-09-17 00:00:00">2022-09-17</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-09-16T16:00:00.000Z" title="更新于 2022-09-17 00:00:00">2022-09-17</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%8A%80%E6%9C%AF%E5%90%91/">技术向</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">4.8k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>14分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="晨光夕忆 ——— 基于3DSMax以及Arduino的自动化绷带包扎机"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>那么一如既往的，这也是老文一篇。高一高二的时候我曾加入过学校的物理科技创新社，并协助其中成员参加了科创大赛。但是不要误会，这篇论文不是我写的，而是由主创herobrine 亲自撰写，所以啊，我是来《锐评》的。</p>
 <blockquote>
 <p>那么这就是我锐评的形式</p>
 </blockquote>
@@ -185,8 +180,8 @@
     pc端网页右边有目录，移动端在右下第二个按钮里有目录，这里就省略了
 </center>
 <hr>
-<h3 id="1-前言"><a class="header-anchor" href="#1-前言">¶</a>1. 前言</h3>
-<h4 id="1-1-研究背景及意义"><a class="header-anchor" href="#1-1-研究背景及意义">¶</a>1.1  研究背景及意义</h4>
+<h3 id="1-前言"><a class="header-anchor" href="#1-前言"></a>1. 前言</h3>
+<h4 id="1-1-研究背景及意义"><a class="header-anchor" href="#1-1-研究背景及意义"></a>1.1  研究背景及意义</h4>
 <p><strong>随着科技的发展，日常生活中受伤的频率不断提升</strong>。而受伤后若要进行肢体的止血包扎等护理过程，传统的止血方式繁琐且需要多人合作，止血的力度也不易控制。目前市面上的止血护理装置基本只具备止血功能，不具备包扎功能；护理时也需要其他人协助，无法在无人协助的情况下进行绷带包扎的过程，即使有多人协助，不仅工作量大同时过程也是繁琐不易的。目前国内也没有能自动化包扎的机器。</p>
 <blockquote>
 <p>他觉得说的不好，于是又说了一次</p>
@@ -195,7 +190,7 @@
 <blockquote>
 <p>有一说一，建议绷带机加一个止血带的功能</p>
 </blockquote>
-<h4 id="1-2-绷带包扎可出现的问题"><a class="header-anchor" href="#1-2-绷带包扎可出现的问题">¶</a>1.2 绷带包扎可出现的问题</h4>
+<h4 id="1-2-绷带包扎可出现的问题"><a class="header-anchor" href="#1-2-绷带包扎可出现的问题"></a>1.2 绷带包扎可出现的问题</h4>
 <p>当个人开始使用绷带包扎时，会出现的问题如下一览：</p>
 <p>① 在绷带开始包扎之前，绷带的一端无法很好的固定于肢体上，若无人协助时，则会导致绷带无法有力的缠绕于肢体上，导致绷带包扎不紧、易滑脱的问题。</p>
 <p>② 绷带的缠绕没有固定的力度，且对于非专业人士来说，绷带的力度无法很好的控制，以至于绷带包扎时可能会导致伤口二次受伤、绷带缠绕过厚或过薄导致的透气问题或者易滑脱的问题。</p>
@@ -204,29 +199,29 @@
 <p>事实上，后面绷带机也出现了这些问题，而且比真人更加严重…</p>
 </blockquote>
 <hr>
-<h3 id="2-研究内容"><a class="header-anchor" href="#2-研究内容">¶</a>2. 研究内容</h3>
-<h4 id="2-1-机械结构"><a class="header-anchor" href="#2-1-机械结构">¶</a>2.1 机械结构</h4>
+<h3 id="2-研究内容"><a class="header-anchor" href="#2-研究内容"></a>2. 研究内容</h3>
+<h4 id="2-1-机械结构"><a class="header-anchor" href="#2-1-机械结构"></a>2.1 机械结构</h4>
 <p>本机体主要是通过一系列机械结构来实现自动缠绕绷带并且能无人协助使用.</p>
 <p>机体的总构图如下图所示：</p>
 <p><img src="https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/2/202209182038122.png" alt="image-20220918203857864"></p>
 <blockquote>
 <p>接下来你会看见一大堆A点，B点，C点的结构描述，看不懂没关系，因为herobrine后面自己都有点搞混了（</p>
 </blockquote>
-<h5 id="2-1-1-绷带缠绕模块"><a class="header-anchor" href="#2-1-1-绷带缠绕模块">¶</a>2.1.1 绷带缠绕模块</h5>
+<h5 id="2-1-1-绷带缠绕模块"><a class="header-anchor" href="#2-1-1-绷带缠绕模块"></a>2.1.1 绷带缠绕模块</h5>
 <p>本结构使用大齿轮作为旋转框架，齿轮上附有绷带固定轴A点。动力皆使用360度舵机。<br>
 结构图如下图所示：</p>
 <p><img src="https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/2/202209181152130.png" alt="image-20220918115211088"></p>
 <p>A点作为绷带固定轴，可以达到绷带固定及缠绕的目的。<br>
 ①	将此元件固定于大齿轮上，将360度舵机安装在一小齿轮上。当舵机开始转动时，会带动元件A点转动。若将绷带固定于元件A点上，当齿轮开始旋转时，即可将绷带缠绕于手上。<br>
 ②	当需要包扎的部位较长时，则会用到42步进电机及伸缩丝杆螺旋模块。将整体机器的一部分固定于伸缩丝杆的轴套上，并在机器底部安装轮子。当伸缩丝杆开始运动时，即可带动整体机器模块在前后的方向上运动。此时若绷带开始缠绕，则能在肢体上缠绕出一段较长的距离。若要控制缠绕厚度，则改变伸缩丝杆的运动速度即可。</p>
-<h5 id="2-1-2-无人包扎自动协助模块"><a class="header-anchor" href="#2-1-2-无人包扎自动协助模块">¶</a>2.1.2 无人包扎自动协助模块</h5>
+<h5 id="2-1-2-无人包扎自动协助模块"><a class="header-anchor" href="#2-1-2-无人包扎自动协助模块"></a>2.1.2 无人包扎自动协助模块</h5>
 <p>B点作为无人包扎自动协助模块，能够在绷带缠绕之始，临时固顶绷带的游离端，以便施力及之后的缠绕过程。这是无人协助自动包扎的关键。<br>
 结构图如下所示:</p>
 <p><img src="https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/2/202209182041323.png" alt="image-20220918204137286"></p>
 <p>① 将B点固定于大齿轮2上，并通过将舵机固定于小齿轮上的方式，通过舵机来控制大   			 齿轮的旋转，从而带动大齿轮上的元B点运动。</p>
 <p>②B点各零件详解：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">前端的带凹槽的长杆：在绷带缠绕之前，将绷带游离端缠绕于长杆上，即可实现在绷带缠绕之前固定绷带的游离端，使绷带缠绕时不至于无法施力。长杆上的凹槽与绷带的缠绕方向垂直，为了增大摩擦，防止滑落。</span><br><span class="line"></span><br><span class="line">长杆后端的齿条：用于控制长杆的伸缩，目的是为了在临时固定绷带游离端，绷带的缠绕能够稳定进行之后能够抽掉长杆，以至于长杆不会阻碍到绷带的缠绕。</span><br><span class="line"></span><br><span class="line">齿条上的齿轮：连接一个小型360度舵机，将其固定于齿条上方若干厘米高，让齿轮和齿条能够恰好吻合。目的是为了让齿轮能够控制齿条的伸缩</span><br><span class="line"></span><br><span class="line">齿条上连接的压板：固定于齿条上并连接一180度舵机，使用舵机来控制压板的运动，目的是为了能将长杆上的绷带游离端压住不会滑落，进一步防止了绷带的滑脱。</span><br><span class="line"></span><br><span class="line">支架：为了固定以上的结构。并且，为了节约成本，采用三角形镂空结构，基本不影响支撑强度，并且能极大的节约材料，减少成本。</span><br></pre></td></tr></table></figure>
-<h5 id="2-1-3-其他供电及控制模块"><a class="header-anchor" href="#2-1-3-其他供电及控制模块">¶</a>2.1.3 其他供电及控制模块</h5>
+<h5 id="2-1-3-其他供电及控制模块"><a class="header-anchor" href="#2-1-3-其他供电及控制模块"></a>2.1.3 其他供电及控制模块</h5>
 <p>​		控制以上的模块的一切为主控制板ArduinoMega2560。</p>
 <p>​		由于主控制板ArduinoMega2560固定于底板上而以上所有的结构都必须在旋转的齿轮上运转，因此给齿轮上的舵机供电及传输讯号成了问题。</p>
 <p>​		因此为了解决以上问题，所有齿轮上的结构都会使用齿轮上的电池槽所带的两节18650电池供电。在传输讯号上，则使用全碳电刷配合镍带条进行讯号传输。传输具体方式为：</p>
@@ -237,7 +232,7 @@
 <p>还记得贴镍带条的痛苦，以及电刷实际上不太稳定，另外，我还记得好像是步进电机还是什么的，成功的把实验室大电脑USB口电涌烧坏了</p>
 </blockquote>
 <hr>
-<h4 id="2-2-整体运作过程"><a class="header-anchor" href="#2-2-整体运作过程">¶</a>2.2 整体运作过程</h4>
+<h4 id="2-2-整体运作过程"><a class="header-anchor" href="#2-2-整体运作过程"></a>2.2 整体运作过程</h4>
 <p>① 包扎之前先让无人包扎自动协助模块中的齿条带动长杆伸出，与A点的绷带的固定轴平行。</p>
 <p>② 在绷带包扎之前，先将绷带置于A点上，拉出其绷带游离端，缠绕于无人包扎自动协助模块的长杆上，令其压板压住绷带游离端，不让其滑脱。</p>
 <p>③ 开始缠绕:控制舵机带动齿轮转动，让齿轮上的A点随齿轮转动而转动，让绷带开始缠绕于肢体上。此时步进电机不要运动，让A点原地旋转两圈，待到绷带能够固定于肢体上之后，让无人包扎自动协助模块上的小型舵机控制压板松开，并让另一个小舵机控制齿条收回，带动长杆收回。这时绷带已能固定于肢体上不滑落，此时无人包扎自动协助模块的使命基本结束。</p>
@@ -248,8 +243,8 @@
 <p>以前还做了动图的，可惜丢了，不过看上图差不多能知道是怎么工作的。</p>
 </blockquote>
 <hr>
-<h3 id="3-研究重点"><a class="header-anchor" href="#3-研究重点">¶</a>3. 研究重点</h3>
-<h4 id="3-1主要创新点"><a class="header-anchor" href="#3-1主要创新点">¶</a>3.1主要创新点</h4>
+<h3 id="3-研究重点"><a class="header-anchor" href="#3-研究重点"></a>3. 研究重点</h3>
+<h4 id="3-1主要创新点"><a class="header-anchor" href="#3-1主要创新点"></a>3.1主要创新点</h4>
 <p>​	本产品创新之处为：</p>
 <p>① 提出了外旋转缠绕模式<br>
 根据已有的缠绕装置来看，目前所存在的所有缠绕装置基本为缠绕器固定，而被缠绕体旋转，这种被称为内旋转缠绕模式。而本装置采用外旋转缠绕模式，即被缠绕体固定，而缠绕装置旋转。由于被包扎的肢体不能旋转，因此此种模式可应用于伤口包扎。</p>
@@ -261,28 +256,28 @@
 <blockquote>
 <p>考考读到这里的你:还记得A点是啥吗?</p>
 </blockquote>
-<h4 id="3-2-装置制作"><a class="header-anchor" href="#3-2-装置制作">¶</a>3.2 装置制作</h4>
+<h4 id="3-2-装置制作"><a class="header-anchor" href="#3-2-装置制作"></a>3.2 装置制作</h4>
 <p>本装置由于零件多且结构复杂，使用传统的木制手作无法实现其功能。因此，使用3Ds Max 2020设计并采用3D打印制作一系列零件和模块。成本低廉，并且能自行修改参数。除去步进电机丝杆等需要高精的装置之外，其他部件皆使用3d打印制作。<br>
 动力装置基本上使用舵机以及步进电机，由于有现成的函数库，因此可以实现代码简洁的优点。再之，舵机以及步进电机可控制角度以及运转速度和时间，因此可以达到精准控制装置运动和旋转的优点，实现以上提到的功能。</p>
 <blockquote>
 <p>虽然但是，一卷打印材料200块钱，小实验室打印不了那么大的齿轮，最后外包去了</p>
 </blockquote>
 <hr>
-<h3 id="4．不足与展望"><a class="header-anchor" href="#4．不足与展望">¶</a>4．不足与展望</h3>
-<h4 id="4-1-不足之处"><a class="header-anchor" href="#4-1-不足之处">¶</a>4.1 不足之处</h4>
+<h3 id="4．不足与展望"><a class="header-anchor" href="#4．不足与展望"></a>4．不足与展望</h3>
+<h4 id="4-1-不足之处"><a class="header-anchor" href="#4-1-不足之处"></a>4.1 不足之处</h4>
 <p>​	目前由于经费与时间的关系，无法很好的<strong>实现以下的不足之处</strong></p>
 <p>​    ① 绷带的缠绕不能很好的控制缠绕的力度。</p>
 <p>​    ② 绷带包扎完成后需要人为的剪短绷带，并且需要人为粘贴透气胶带。</p>
 <blockquote>
 <p>“实现不足之处”, 为什么要实现不足之处啊？理解不能。</p>
 </blockquote>
-<h4 id="4-2-未来展望解决方案"><a class="header-anchor" href="#4-2-未来展望解决方案">¶</a>4.2 未来展望解决方案</h4>
-<h5 id="4-2-1关于绷带缠绕不能很好的控制力度，提出了以下的模型"><a class="header-anchor" href="#4-2-1关于绷带缠绕不能很好的控制力度，提出了以下的模型">¶</a>4.2.1关于绷带缠绕不能很好的控制力度，提出了以下的模型</h5>
+<h4 id="4-2-未来展望解决方案"><a class="header-anchor" href="#4-2-未来展望解决方案"></a>4.2 未来展望解决方案</h4>
+<h5 id="4-2-1关于绷带缠绕不能很好的控制力度，提出了以下的模型"><a class="header-anchor" href="#4-2-1关于绷带缠绕不能很好的控制力度，提出了以下的模型"></a>4.2.1关于绷带缠绕不能很好的控制力度，提出了以下的模型</h5>
 <p><img src="https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/2/202209182100050.png" alt="image-20220918210023008"></p>
 <p>​	如图所示，在A点安装一个弹簧，并在A点上安装两个凸起点，用于连接两根尼龙细线。在尼龙细线的末端安装一个180度舵机，使用舵机牵拉尼龙细线，使得A点能够被压下。<br>
 ​	当A点被压下时，绷带轴与肢体之间的距离变短，使得绷带拉伸。此时绷带就能有更强的缠绕力度。<br>
 ​	通过改变舵机的偏转角度，改变A点被压下的长度，既能改变绷带的缠绕力度，实现力度控制。</p>
-<h6 id="4-2-1-1-关于力度控制参数的来源"><a class="header-anchor" href="#4-2-1-1-关于力度控制参数的来源">¶</a>4.2.1.1 关于力度控制参数的来源</h6>
+<h6 id="4-2-1-1-关于力度控制参数的来源"><a class="header-anchor" href="#4-2-1-1-关于力度控制参数的来源"></a>4.2.1.1 关于力度控制参数的来源</h6>
 <p><img src="https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/2/202209182103482.png" alt="image-20220918210304443"></p>
 <p>​	如上图，在装置的两齿轮之间安装一根齿条，并且安置一个齿轮舵机组合，通过控制舵机的旋转来控制齿轮在齿条上的移动。在齿轮舵机组合上安装一根长杆，使得长杆的顶端恰好和肢体的中心保持统一高度。在长杆末端安装一个微触开关。<br>
 ​	使用本设备前，先将肢体伸入两齿轮的中间，然后启动舵机，让舵机带动长干匀速前进，直到微触开关触碰到肢体为止。当微触开关触碰到肢体，即给主控制板Arduino通一个高电平，收到高电平后，舵机停止运动，此时通过舵机的运动时间呈上舵机运动的速度得出运动的距离。再用大齿轮内半径减去舵机运动距离得出肢体的半径。<br>
@@ -290,8 +285,8 @@
 <blockquote>
 <p>吹牛大家都会</p>
 </blockquote>
-<h5 id="4-2-2-关于无法剪断带并粘贴胶带的改进"><a class="header-anchor" href="#4-2-2-关于无法剪断带并粘贴胶带的改进">¶</a>4.2.2 关于无法剪断带并粘贴胶带的改进</h5>
-<h6 id="4-2-2-1-剪断绷带模块"><a class="header-anchor" href="#4-2-2-1-剪断绷带模块">¶</a>4.2.2.1 剪断绷带模块</h6>
+<h5 id="4-2-2-关于无法剪断带并粘贴胶带的改进"><a class="header-anchor" href="#4-2-2-关于无法剪断带并粘贴胶带的改进"></a>4.2.2 关于无法剪断带并粘贴胶带的改进</h5>
+<h6 id="4-2-2-1-剪断绷带模块"><a class="header-anchor" href="#4-2-2-1-剪断绷带模块"></a>4.2.2.1 剪断绷带模块</h6>
 <p>​	在大齿轮2上安装第二个B点，位于原本B点的90度方向</p>
 <p><img src="https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/2/202209182104788.png" alt="image-20220918210431742"></p>
 <p>​	如图所示，将原本的带凹槽的长杆替换为<strong>刀片</strong>，并且删除压板及其传动装置。<br>
@@ -302,12 +297,12 @@
 <p>好像也可以性转(?)</p>
 <p>另外，这个想法在校内答辩时一经提出，语惊四座，把指导老师都绷的说不出话来</p>
 </blockquote>
-<h6 id="4-2-2-2-胶带粘贴装置"><a class="header-anchor" href="#4-2-2-2-胶带粘贴装置">¶</a>4.2.2.2 胶带粘贴装置</h6>
+<h6 id="4-2-2-2-胶带粘贴装置"><a class="header-anchor" href="#4-2-2-2-胶带粘贴装置"></a>4.2.2.2 胶带粘贴装置</h6>
 <p>在大齿轮1前方安装下图装置</p>
 <p><img src="https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/2/202209182109210.png" alt="image-20220918210929167"></p>
 <p>​		如图所示，本装置两端有两根齿条，齿条上安有齿轮舵机组合，通过控制舵机来控制齿轮的运动。在舵机齿轮组合安装两个牵拉夹，用两个牵拉夹分别夹住胶带的两端。然后让两个舵机同时往下运动，让胶带贴在肢体上。当胶带受到一定的力时会自行从牵拉夹中断开。从而实现自动胶带粘贴的目的。</p>
 <hr>
-<h3 id="5-研究历程"><a class="header-anchor" href="#5-研究历程">¶</a>5. 研究历程</h3>
+<h3 id="5-研究历程"><a class="header-anchor" href="#5-研究历程"></a>5. 研究历程</h3>
 <p>2019.5.1	本项目于2019年5月1日正式立项，是由于观察到受伤的舍友在自行给扭伤的部位包扎消炎止痛膏时的繁琐与不便所启发，因而想要开发一款能够自行包扎患部的机器。<br>
 先是对已有的自动化护理仪器进行了调研，发现现有的仪器大多只有止血功能，并无包扎功能，因而更加坚定地想要开发一款自动化包扎的机器。</p>
 <p>2019.5.30   开始设计这款机器，使用3DSMAX软件进行建模，并运用3D打印技术，打印零部件。</p>
@@ -319,7 +314,7 @@
 <p>论文到此结束。</p>
 <p>现在看来，这是只属于高中时代的浪漫吧。半年的时间，herobrine能够做出这个东西，最后还能拿省二，属实是非常牛逼了。如果用专业知识来看，这个东西问题非常多，力学结构（特别是用齿轮做传动的同时还起支撑作用），电路设计都毛病不少，但是，最让我们感到兴奋的一瞬间，就是它真的动起来的那一刻。</p>
 </blockquote>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://ichirinko.top">Ichirinko</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://ichirinko.top/2022/09/17/%E5%9F%BA%E4%BA%8E3DSMAX%E4%BB%A5%E5%8F%8AArduino%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8C%96%E7%BB%B7%E5%B8%A6%E5%8C%85%E6%89%8E%E6%9C%BA/">https://ichirinko.top/2022/09/17/%E5%9F%BA%E4%BA%8E3DSMAX%E4%BB%A5%E5%8F%8AArduino%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8C%96%E7%BB%B7%E5%B8%A6%E5%8C%85%E6%89%8E%E6%9C%BA/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://ichirinko.top" target="_blank">Ichirinko's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%96%B0%E6%B4%BB/">新活</a><a class="post-meta__tags" href="/tags/3DSMax/">3DSMax</a><a class="post-meta__tags" href="/tags/Arduino/">Arduino</a><a class="post-meta__tags" href="/tags/%E7%A7%91%E5%88%9B/">科创</a></div><div class="post_share"><div class="social-share" data-image="https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/2/202209181200620.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/10/07/%E7%9C%8B%E5%8D%87%E6%97%97/"><img class="prev-cover" src="https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/%E5%8D%87%E6%97%97/202210030025125.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">【速通攻略v1.0】 去天安门看升旗两三事</div></div></a></div><div class="next-post pull-right"><a href="/2022/09/13/%E9%BB%91%E7%A7%91%E6%8A%80Shader%20%E7%9D%80%E8%89%B2%E5%99%A8%E5%AE%9E%E7%8E%B0(1)/"><img class="next-cover" src="https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/1202209131047064.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">黑科技Shader着色器实现（一） 冲击波纹扩散效果</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2022/09/11/hello-world/" title="写于开始之前"><img class="cover" src="https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/img/1202209122159212.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-09-11</div><div class="title">写于开始之前</div></div></a></div><div><a href="/2022/09/12/the%20Gensokyo%20in%20the%20codes/" title="代码中的幻想乡"><img class="cover" src="https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/img/1202209122222786.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-09-12</div><div class="title">代码中的幻想乡</div></div></a></div><div><a href="/2022/10/07/%E7%9C%8B%E5%8D%87%E6%97%97/" title="【速通攻略v1.0】 去天安门看升旗两三事"><img class="cover" src="https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/%E5%8D%87%E6%97%97/202210030025125.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-10-07</div><div class="title">【速通攻略v1.0】 去天安门看升旗两三事</div></div></a></div><div><a href="/2022/09/13/%E9%BB%91%E7%A7%91%E6%8A%80Shader%20%E7%9D%80%E8%89%B2%E5%99%A8%E5%AE%9E%E7%8E%B0(1)/" title="黑科技Shader着色器实现（一） 冲击波纹扩散效果"><img class="cover" src="https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/1202209131047064.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-09-13</div><div class="title">黑科技Shader着色器实现（一） 冲击波纹扩散效果</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/img/202209122110798.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Ichirinko</div><div class="author-info__description">找点乐子做</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">40</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">22</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/ZYL-DF" target="_blank" title="Github"><i class="fab fa-github"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">2024,新年快乐!</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-text">
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://ichirinko.top">Ichirinko</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://ichirinko.top/2022/09/17/%E5%9F%BA%E4%BA%8E3DSMAX%E4%BB%A5%E5%8F%8AArduino%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8C%96%E7%BB%B7%E5%B8%A6%E5%8C%85%E6%89%8E%E6%9C%BA/">https://ichirinko.top/2022/09/17/%E5%9F%BA%E4%BA%8E3DSMAX%E4%BB%A5%E5%8F%8AArduino%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8C%96%E7%BB%B7%E5%B8%A6%E5%8C%85%E6%89%8E%E6%9C%BA/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://ichirinko.top" target="_blank">Ichirinko's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%96%B0%E6%B4%BB/">新活</a><a class="post-meta__tags" href="/tags/3DSMax/">3DSMax</a><a class="post-meta__tags" href="/tags/Arduino/">Arduino</a><a class="post-meta__tags" href="/tags/%E7%A7%91%E5%88%9B/">科创</a></div><div class="post_share"><div class="social-share" data-image="https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/2/202209181200620.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/10/07/%E7%9C%8B%E5%8D%87%E6%97%97/" title="【速通攻略v1.0】 去天安门看升旗两三事"><img class="cover" src="https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/%E5%8D%87%E6%97%97/202210030025125.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">【速通攻略v1.0】 去天安门看升旗两三事</div></div></a></div><div class="next-post pull-right"><a href="/2022/09/13/%E9%BB%91%E7%A7%91%E6%8A%80Shader%20%E7%9D%80%E8%89%B2%E5%99%A8%E5%AE%9E%E7%8E%B0(1)/" title="黑科技Shader着色器实现（一） 冲击波纹扩散效果"><img class="cover" src="https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/1202209131047064.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">黑科技Shader着色器实现（一） 冲击波纹扩散效果</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2022/09/11/hello-world/" title="写于开始之前"><img class="cover" src="https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/img/1202209122159212.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-09-11</div><div class="title">写于开始之前</div></div></a></div><div><a href="/2022/09/12/the%20Gensokyo%20in%20the%20codes/" title="代码中的幻想乡"><img class="cover" src="https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/img/1202209122222786.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-09-12</div><div class="title">代码中的幻想乡</div></div></a></div><div><a href="/2022/10/07/%E7%9C%8B%E5%8D%87%E6%97%97/" title="【速通攻略v1.0】 去天安门看升旗两三事"><img class="cover" src="https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/%E5%8D%87%E6%97%97/202210030025125.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-10-07</div><div class="title">【速通攻略v1.0】 去天安门看升旗两三事</div></div></a></div><div><a href="/2022/09/13/%E9%BB%91%E7%A7%91%E6%8A%80Shader%20%E7%9D%80%E8%89%B2%E5%99%A8%E5%AE%9E%E7%8E%B0(1)/" title="黑科技Shader着色器实现（一） 冲击波纹扩散效果"><img class="cover" src="https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/1202209131047064.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-09-13</div><div class="title">黑科技Shader着色器实现（一） 冲击波纹扩散效果</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/img/202209122110798.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Ichirinko</div><div class="author-info__description">找点乐子做</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">41</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">25</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/ZYL-DF" target="_blank" title="Github"><i class="fab fa-github"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">2024,新年快乐!</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-text">
         以下正文
         
         
@@ -330,17 +325,4 @@
         摘		要
     </span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-text">
         目		录
-    </span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%89%8D%E8%A8%80"><span class="toc-text">1. 前言</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-%E7%A0%94%E7%A9%B6%E8%83%8C%E6%99%AF%E5%8F%8A%E6%84%8F%E4%B9%89"><span class="toc-text">1.1  研究背景及意义</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-%E7%BB%B7%E5%B8%A6%E5%8C%85%E6%89%8E%E5%8F%AF%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-text">1.2 绷带包扎可出现的问题</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E7%A0%94%E7%A9%B6%E5%86%85%E5%AE%B9"><span class="toc-text">2. 研究内容</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-%E6%9C%BA%E6%A2%B0%E7%BB%93%E6%9E%84"><span class="toc-text">2.1 机械结构</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#2-1-1-%E7%BB%B7%E5%B8%A6%E7%BC%A0%E7%BB%95%E6%A8%A1%E5%9D%97"><span class="toc-text">2.1.1 绷带缠绕模块</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-1-2-%E6%97%A0%E4%BA%BA%E5%8C%85%E6%89%8E%E8%87%AA%E5%8A%A8%E5%8D%8F%E5%8A%A9%E6%A8%A1%E5%9D%97"><span class="toc-text">2.1.2 无人包扎自动协助模块</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-1-3-%E5%85%B6%E4%BB%96%E4%BE%9B%E7%94%B5%E5%8F%8A%E6%8E%A7%E5%88%B6%E6%A8%A1%E5%9D%97"><span class="toc-text">2.1.3 其他供电及控制模块</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-%E6%95%B4%E4%BD%93%E8%BF%90%E4%BD%9C%E8%BF%87%E7%A8%8B"><span class="toc-text">2.2 整体运作过程</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E7%A0%94%E7%A9%B6%E9%87%8D%E7%82%B9"><span class="toc-text">3. 研究重点</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1%E4%B8%BB%E8%A6%81%E5%88%9B%E6%96%B0%E7%82%B9"><span class="toc-text">3.1主要创新点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-%E8%A3%85%E7%BD%AE%E5%88%B6%E4%BD%9C"><span class="toc-text">3.2 装置制作</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4%EF%BC%8E%E4%B8%8D%E8%B6%B3%E4%B8%8E%E5%B1%95%E6%9C%9B"><span class="toc-text">4．不足与展望</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1-%E4%B8%8D%E8%B6%B3%E4%B9%8B%E5%A4%84"><span class="toc-text">4.1 不足之处</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-%E6%9C%AA%E6%9D%A5%E5%B1%95%E6%9C%9B%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-text">4.2 未来展望解决方案</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#4-2-1%E5%85%B3%E4%BA%8E%E7%BB%B7%E5%B8%A6%E7%BC%A0%E7%BB%95%E4%B8%8D%E8%83%BD%E5%BE%88%E5%A5%BD%E7%9A%84%E6%8E%A7%E5%88%B6%E5%8A%9B%E5%BA%A6%EF%BC%8C%E6%8F%90%E5%87%BA%E4%BA%86%E4%BB%A5%E4%B8%8B%E7%9A%84%E6%A8%A1%E5%9E%8B"><span class="toc-text">4.2.1关于绷带缠绕不能很好的控制力度，提出了以下的模型</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#4-2-1-1-%E5%85%B3%E4%BA%8E%E5%8A%9B%E5%BA%A6%E6%8E%A7%E5%88%B6%E5%8F%82%E6%95%B0%E7%9A%84%E6%9D%A5%E6%BA%90"><span class="toc-text">4.2.1.1 关于力度控制参数的来源</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-2-2-%E5%85%B3%E4%BA%8E%E6%97%A0%E6%B3%95%E5%89%AA%E6%96%AD%E5%B8%A6%E5%B9%B6%E7%B2%98%E8%B4%B4%E8%83%B6%E5%B8%A6%E7%9A%84%E6%94%B9%E8%BF%9B"><span class="toc-text">4.2.2 关于无法剪断带并粘贴胶带的改进</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#4-2-2-1-%E5%89%AA%E6%96%AD%E7%BB%B7%E5%B8%A6%E6%A8%A1%E5%9D%97"><span class="toc-text">4.2.2.1 剪断绷带模块</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#4-2-2-2-%E8%83%B6%E5%B8%A6%E7%B2%98%E8%B4%B4%E8%A3%85%E7%BD%AE"><span class="toc-text">4.2.2.2 胶带粘贴装置</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E7%A0%94%E7%A9%B6%E5%8E%86%E7%A8%8B"><span class="toc-text">5. 研究历程</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/01/12/%E7%AE%97%E6%B3%95%20%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%EF%BC%88%E4%B8%89%EF%BC%89/" title="算法 期末复习（三）"><img src="https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/Opera_System/202401072250543.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="算法 期末复习（三）"/></a><div class="content"><a class="title" href="/2024/01/12/%E7%AE%97%E6%B3%95%20%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%EF%BC%88%E4%B8%89%EF%BC%89/" title="算法 期末复习（三）">算法 期末复习（三）</a><time datetime="2024-01-11T16:00:00.000Z" title="发表于 2024-01-12 00:00:00">2024-01-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/01/11/%E7%AE%97%E6%B3%95%20%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%EF%BC%88%E4%BA%8C%EF%BC%89/" title="算法 期末复习（二）"><img src="https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/Opera_System/202401072250542.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="算法 期末复习（二）"/></a><div class="content"><a class="title" href="/2024/01/11/%E7%AE%97%E6%B3%95%20%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%EF%BC%88%E4%BA%8C%EF%BC%89/" title="算法 期末复习（二）">算法 期末复习（二）</a><time datetime="2024-01-10T16:00:00.000Z" title="发表于 2024-01-11 00:00:00">2024-01-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/01/10/%E7%AE%97%E6%B3%95%20%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/" title="算法 期末复习（一）"><img src="https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/Opera_System/202401072247152.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="算法 期末复习（一）"/></a><div class="content"><a class="title" href="/2024/01/10/%E7%AE%97%E6%B3%95%20%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/" title="算法 期末复习（一）">算法 期末复习（一）</a><time datetime="2024-01-09T16:00:00.000Z" title="发表于 2024-01-10 00:00:00">2024-01-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/01/09/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%20%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/" title="操作系统 期末复习（八至十三章）"><img src="https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/Opera_System/202401052150765.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="操作系统 期末复习（八至十三章）"/></a><div class="content"><a class="title" href="/2024/01/09/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%20%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/" title="操作系统 期末复习（八至十三章）">操作系统 期末复习（八至十三章）</a><time datetime="2024-01-08T16:00:00.000Z" title="发表于 2024-01-09 00:00:00">2024-01-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/01/08/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%EF%BC%88%E4%B8%83%EF%BC%89%E7%9B%AE%E6%A0%87&amp;%E4%B8%AD%E9%97%B4%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90%E4%B8%8E%E4%BC%98%E5%8C%96/" title="编译原理 期末复习 中间&amp;目标代码生成与优化"><img src="https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/Opera_System/202401052144200.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="编译原理 期末复习 中间&amp;目标代码生成与优化"/></a><div class="content"><a class="title" href="/2024/01/08/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%EF%BC%88%E4%B8%83%EF%BC%89%E7%9B%AE%E6%A0%87&amp;%E4%B8%AD%E9%97%B4%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90%E4%B8%8E%E4%BC%98%E5%8C%96/" title="编译原理 期末复习 中间&amp;目标代码生成与优化">编译原理 期末复习 中间&amp;目标代码生成与优化</a><time datetime="2024-01-07T16:00:00.000Z" title="发表于 2024-01-08 00:00:00">2024-01-08</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/2/202209181200621.png')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Ichirinko</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text"><a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/""><span>粤ICP备2023003597号</span></a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script>var preloader = {
-  endLoading: () => {
-    document.body.style.overflow = 'auto';
-    document.getElementById('loading-box').classList.add("loaded")
-  },
-  initLoading: () => {
-    document.body.style.overflow = '';
-    document.getElementById('loading-box').classList.remove("loaded")
-
-  }
-}
-window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"></div><script defer="defer" id="fluttering_ribbon" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html><div id="sakana-widget" style="position:fixed;bottom:10px;right:10px;"></div><script>function initSakanaWidget() {
-new SakanaWidget().mount('#sakana-widget');
-}</script><script async="" onload="initSakanaWidget()" src="https://cdn.jsdelivr.net/npm/sakana-widget@2.2.1/lib/sakana.min.js"></script>
+    </span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%89%8D%E8%A8%80"><span class="toc-text">1. 前言</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-%E7%A0%94%E7%A9%B6%E8%83%8C%E6%99%AF%E5%8F%8A%E6%84%8F%E4%B9%89"><span class="toc-text">1.1  研究背景及意义</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-%E7%BB%B7%E5%B8%A6%E5%8C%85%E6%89%8E%E5%8F%AF%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-text">1.2 绷带包扎可出现的问题</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E7%A0%94%E7%A9%B6%E5%86%85%E5%AE%B9"><span class="toc-text">2. 研究内容</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-%E6%9C%BA%E6%A2%B0%E7%BB%93%E6%9E%84"><span class="toc-text">2.1 机械结构</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#2-1-1-%E7%BB%B7%E5%B8%A6%E7%BC%A0%E7%BB%95%E6%A8%A1%E5%9D%97"><span class="toc-text">2.1.1 绷带缠绕模块</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-1-2-%E6%97%A0%E4%BA%BA%E5%8C%85%E6%89%8E%E8%87%AA%E5%8A%A8%E5%8D%8F%E5%8A%A9%E6%A8%A1%E5%9D%97"><span class="toc-text">2.1.2 无人包扎自动协助模块</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-1-3-%E5%85%B6%E4%BB%96%E4%BE%9B%E7%94%B5%E5%8F%8A%E6%8E%A7%E5%88%B6%E6%A8%A1%E5%9D%97"><span class="toc-text">2.1.3 其他供电及控制模块</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-%E6%95%B4%E4%BD%93%E8%BF%90%E4%BD%9C%E8%BF%87%E7%A8%8B"><span class="toc-text">2.2 整体运作过程</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E7%A0%94%E7%A9%B6%E9%87%8D%E7%82%B9"><span class="toc-text">3. 研究重点</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1%E4%B8%BB%E8%A6%81%E5%88%9B%E6%96%B0%E7%82%B9"><span class="toc-text">3.1主要创新点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-%E8%A3%85%E7%BD%AE%E5%88%B6%E4%BD%9C"><span class="toc-text">3.2 装置制作</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4%EF%BC%8E%E4%B8%8D%E8%B6%B3%E4%B8%8E%E5%B1%95%E6%9C%9B"><span class="toc-text">4．不足与展望</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1-%E4%B8%8D%E8%B6%B3%E4%B9%8B%E5%A4%84"><span class="toc-text">4.1 不足之处</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-%E6%9C%AA%E6%9D%A5%E5%B1%95%E6%9C%9B%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-text">4.2 未来展望解决方案</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#4-2-1%E5%85%B3%E4%BA%8E%E7%BB%B7%E5%B8%A6%E7%BC%A0%E7%BB%95%E4%B8%8D%E8%83%BD%E5%BE%88%E5%A5%BD%E7%9A%84%E6%8E%A7%E5%88%B6%E5%8A%9B%E5%BA%A6%EF%BC%8C%E6%8F%90%E5%87%BA%E4%BA%86%E4%BB%A5%E4%B8%8B%E7%9A%84%E6%A8%A1%E5%9E%8B"><span class="toc-text">4.2.1关于绷带缠绕不能很好的控制力度，提出了以下的模型</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#4-2-1-1-%E5%85%B3%E4%BA%8E%E5%8A%9B%E5%BA%A6%E6%8E%A7%E5%88%B6%E5%8F%82%E6%95%B0%E7%9A%84%E6%9D%A5%E6%BA%90"><span class="toc-text">4.2.1.1 关于力度控制参数的来源</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-2-2-%E5%85%B3%E4%BA%8E%E6%97%A0%E6%B3%95%E5%89%AA%E6%96%AD%E5%B8%A6%E5%B9%B6%E7%B2%98%E8%B4%B4%E8%83%B6%E5%B8%A6%E7%9A%84%E6%94%B9%E8%BF%9B"><span class="toc-text">4.2.2 关于无法剪断带并粘贴胶带的改进</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#4-2-2-1-%E5%89%AA%E6%96%AD%E7%BB%B7%E5%B8%A6%E6%A8%A1%E5%9D%97"><span class="toc-text">4.2.2.1 剪断绷带模块</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#4-2-2-2-%E8%83%B6%E5%B8%A6%E7%B2%98%E8%B4%B4%E8%A3%85%E7%BD%AE"><span class="toc-text">4.2.2.2 胶带粘贴装置</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E7%A0%94%E7%A9%B6%E5%8E%86%E7%A8%8B"><span class="toc-text">5. 研究历程</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/01/25/Chrome%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91%EF%BC%88%E4%B8%80%EF%BC%89%E6%A8%A1%E5%9D%97%E6%A6%82%E8%BF%B0/" title="Chrome扩展插件开发（一）模块概述"><img src="https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/Opera_System/202401251714162.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Chrome扩展插件开发（一）模块概述"/></a><div class="content"><a class="title" href="/2024/01/25/Chrome%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91%EF%BC%88%E4%B8%80%EF%BC%89%E6%A8%A1%E5%9D%97%E6%A6%82%E8%BF%B0/" title="Chrome扩展插件开发（一）模块概述">Chrome扩展插件开发（一）模块概述</a><time datetime="2024-01-24T16:00:00.000Z" title="发表于 2024-01-25 00:00:00">2024-01-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/01/12/%E7%AE%97%E6%B3%95%20%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%EF%BC%88%E4%B8%89%EF%BC%89/" title="算法 期末复习（三）"><img src="https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/Opera_System/202401072250543.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="算法 期末复习（三）"/></a><div class="content"><a class="title" href="/2024/01/12/%E7%AE%97%E6%B3%95%20%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%EF%BC%88%E4%B8%89%EF%BC%89/" title="算法 期末复习（三）">算法 期末复习（三）</a><time datetime="2024-01-11T16:00:00.000Z" title="发表于 2024-01-12 00:00:00">2024-01-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/01/11/%E7%AE%97%E6%B3%95%20%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%EF%BC%88%E4%BA%8C%EF%BC%89/" title="算法 期末复习（二）"><img src="https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/Opera_System/202401072250542.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="算法 期末复习（二）"/></a><div class="content"><a class="title" href="/2024/01/11/%E7%AE%97%E6%B3%95%20%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%EF%BC%88%E4%BA%8C%EF%BC%89/" title="算法 期末复习（二）">算法 期末复习（二）</a><time datetime="2024-01-10T16:00:00.000Z" title="发表于 2024-01-11 00:00:00">2024-01-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/01/10/%E7%AE%97%E6%B3%95%20%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/" title="算法 期末复习（一）"><img src="https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/Opera_System/202401072247152.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="算法 期末复习（一）"/></a><div class="content"><a class="title" href="/2024/01/10/%E7%AE%97%E6%B3%95%20%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/" title="算法 期末复习（一）">算法 期末复习（一）</a><time datetime="2024-01-09T16:00:00.000Z" title="发表于 2024-01-10 00:00:00">2024-01-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/01/09/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%20%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/" title="操作系统 期末复习（八至十三章）"><img src="https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/Opera_System/202401052150765.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="操作系统 期末复习（八至十三章）"/></a><div class="content"><a class="title" href="/2024/01/09/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%20%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/" title="操作系统 期末复习（八至十三章）">操作系统 期末复习（八至十三章）</a><time datetime="2024-01-08T16:00:00.000Z" title="发表于 2024-01-09 00:00:00">2024-01-09</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/2/202209181200621.png')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Ichirinko</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text"><a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/""><span>粤ICP备2023003597号</span></a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script defer="defer" id="fluttering_ribbon" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="algolia-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="search-wrap"><div id="algolia-search-input"></div><hr/><div id="algolia-search-results"><div id="algolia-hits"></div><div id="algolia-pagination"></div><div id="algolia-info"><div class="algolia-stats"></div><div class="algolia-poweredBy"></div></div></div></div></div><div id="search-mask"></div><script src="https://cdn.jsdelivr.net/npm/algoliasearch/dist/algoliasearch-lite.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instantsearch.js/dist/instantsearch.production.min.js"></script><script src="/js/search/algolia.js"></script></div></div></body></html>

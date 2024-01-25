@@ -1,24 +1,10 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>计网 第三讲 物理层 (2023.3.3-3.14) | Ichirinko's Blog</title><meta name="keywords" content="计算机网络,笔记"><meta name="author" content="Ichirinko"><meta name="copyright" content="Ichirinko"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="计算机网络-物理层">
-<meta property="og:type" content="article">
-<meta property="og:title" content="计网 第三讲 物理层 (2023.3.3-3.14)">
-<meta property="og:url" content="https://ichirinko.top/2023/04/22/%E8%AE%A1%E7%BD%91%20%E7%AC%AC%E4%B8%89%E8%AE%B2%20%E7%89%A9%E7%90%86%E5%B1%82%202023.3.3+3.7+3.10+3.14/index.html">
-<meta property="og:site_name" content="Ichirinko&#39;s Blog">
-<meta property="og:description" content="计算机网络-物理层">
-<meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/ComputerNetwork/4/202304250034505.jpg">
-<meta property="article:published_time" content="2023-04-21T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-04-21T16:00:00.000Z">
-<meta property="article:author" content="Ichirinko">
-<meta property="article:tag" content="学习">
-<meta property="article:tag" content="计算机网络">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/ComputerNetwork/4/202304250034505.jpg"><link rel="shortcut icon" href="https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/202301142337679.png"><link rel="canonical" href="https://ichirinko.top/2023/04/22/%E8%AE%A1%E7%BD%91%20%E7%AC%AC%E4%B8%89%E8%AE%B2%20%E7%89%A9%E7%90%86%E5%B1%82%202023.3.3+3.7+3.10+3.14/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>计网 第三讲 物理层 (2023.3.3-3.14) | Ichirinko's Blog</title><meta name="author" content="Ichirinko"><meta name="copyright" content="Ichirinko"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="计算机网络-物理层"><link rel="shortcut icon" href="https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/202301142337679.png"><link rel="canonical" href="https://ichirinko.top/2023/04/22/%E8%AE%A1%E7%BD%91%20%E7%AC%AC%E4%B8%89%E8%AE%B2%20%E7%89%A9%E7%90%86%E5%B1%82%202023.3.3+3.7+3.10+3.14/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
   root: '/',
-  algolia: undefined,
+  algolia: {"appId":"SOG1NOH84L","apiKey":"ed3e8c05dd5bb70c4029fcc40dceaf4a","indexName":"ichirinko_index","hits":{"per_page":6},"languages":{"input_placeholder":"搜索文章","hits_empty":"找不到您查询的内容：${query}","hits_stats":"找到 ${hits} 条结果，用时 ${time} 毫秒"}},
   localSearch: undefined,
   translate: undefined,
   noticeOutdate: undefined,
-  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
   copy: {
     success: '复制成功',
     error: '复制错误',
@@ -29,7 +15,7 @@
     post: false
   },
   runtime: '天',
-  date_suffix: {
+  dateSuffix: {
     just: '刚刚',
     min: '分钟前',
     hour: '小时前',
@@ -39,15 +25,18 @@
   copyright: undefined,
   lightbox: 'fancybox',
   Snackbar: undefined,
-  source: {
-    justifiedGallery: {
-      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
-      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
-    }
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
   },
   isPhotoFigcaption: false,
   islazyload: false,
-  isAnchor: false
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
 }</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
   title: '计网 第三讲 物理层 (2023.3.3-3.14)',
   isPost: true,
@@ -55,69 +44,77 @@
   isHighlightShrink: false,
   isToc: true,
   postUpdate: '2023-04-22 00:00:00'
-}</script><noscript><style type="text/css">
-  #nav {
-    opacity: 1
-  }
-  .justified-gallery img {
-    opacity: 1
-  }
-
-  #recent-posts time,
-  #post-meta time {
-    display: inline !important
-  }
-</style></noscript><script>(win=>{
-    win.saveToLocal = {
-      set: function setWithExpiry(key, value, ttl) {
-        if (ttl === 0) return
-        const now = new Date()
-        const expiryDay = ttl * 86400000
-        const item = {
-          value: value,
-          expiry: now.getTime() + expiryDay,
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
         }
-        localStorage.setItem(key, JSON.stringify(item))
-      },
-
-      get: function getWithExpiry(key) {
-        const itemStr = localStorage.getItem(key)
-
-        if (!itemStr) {
-          return undefined
-        }
-        const item = JSON.parse(itemStr)
-        const now = new Date()
-
-        if (now.getTime() > item.expiry) {
-          localStorage.removeItem(key)
-          return undefined
-        }
-        return item.value
       }
-    }
-  
-    win.getScript = url => new Promise((resolve, reject) => {
-      const script = document.createElement('script')
-      script.src = url
-      script.async = true
-      script.onerror = reject
-      script.onload = script.onreadystatechange = function() {
-        const loadState = this.readyState
-        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
-        script.onload = script.onreadystatechange = null
-        resolve()
-      }
-      document.head.appendChild(script)
-    })
-  
-      win.activateDarkMode = function () {
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
         document.documentElement.setAttribute('data-theme', 'dark')
         if (document.querySelector('meta[name="theme-color"]') !== null) {
           document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
         }
       }
-      win.activateLightMode = function () {
+      win.activateLightMode = () => {
         document.documentElement.setAttribute('data-theme', 'light')
         if (document.querySelector('meta[name="theme-color"]') !== null) {
           document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
@@ -125,9 +122,9 @@
       }
       const t = saveToLocal.get('theme')
     
-          if (t === 'dark') activateDarkMode()
-          else if (t === 'light') activateLightMode()
-        
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
       const asideStatus = saveToLocal.get('aside-status')
       if (asideStatus !== undefined) {
         if (asideStatus === 'hide') {
@@ -137,13 +134,13 @@
         }
       }
     
-    const detectApple = () => {
-      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
-        document.documentElement.classList.add('apple')
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
       }
-    }
-    detectApple()
-    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/img/202209122110798.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">40</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">22</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 开盒</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/CSAPP/1-6/202210200028800.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Ichirinko's Blog</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 开盒</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">计网 第三讲 物理层 (2023.3.3-3.14)</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-04-21T16:00:00.000Z" title="发表于 2023-04-22 00:00:00">2023-04-22</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-04-21T16:00:00.000Z" title="更新于 2023-04-22 00:00:00">2023-04-22</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.8k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>6分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="计网 第三讲 物理层 (2023.3.3-3.14)"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h3 id="核心功能"><a class="header-anchor" href="#核心功能">¶</a>核心功能</h3>
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.1.1"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/img/202209122110798.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">41</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">25</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 开盒</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/CSAPP/1-6/202210200028800.png')"><nav id="nav"><span id="blog-info"><a href="/" title="Ichirinko's Blog"><span class="site-name">Ichirinko's Blog</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 开盒</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">计网 第三讲 物理层 (2023.3.3-3.14)</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-04-21T16:00:00.000Z" title="发表于 2023-04-22 00:00:00">2023-04-22</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-04-21T16:00:00.000Z" title="更新于 2023-04-22 00:00:00">2023-04-22</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.8k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>6分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="计网 第三讲 物理层 (2023.3.3-3.14)"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h3 id="核心功能"><a class="header-anchor" href="#核心功能"></a>核心功能</h3>
 <p>Defining the electrical, timing and other interfaces by which bitsare sent as signalsover channels.</p>
 <p>定义传输媒体的接口，为上层的数据链路层提供服务</p>
 <ul>
@@ -154,13 +151,13 @@
 <li>multiplexing 复用 多个信号合在一起使用同一条信道</li>
 </ul>
 <br>
-<h3 id="简单数据通信模型（电话网）"><a class="header-anchor" href="#简单数据通信模型（电话网）">¶</a>简单数据通信模型（电话网）</h3>
+<h3 id="简单数据通信模型（电话网）"><a class="header-anchor" href="#简单数据通信模型（电话网）"></a>简单数据通信模型（电话网）</h3>
 <p>要将数字信号调制为模拟信号，才能在模拟信道中传输</p>
 <p>到达接收方后，信号重新解调为数字信号</p>
 <p>采用Modem设备进行调制</p>
 <p>Source - modem - network - modem - server</p>
 <Br>
-<h3 id="概念"><a class="header-anchor" href="#概念">¶</a>概念</h3>
+<h3 id="概念"><a class="header-anchor" href="#概念"></a>概念</h3>
 <ul>
 <li>
 <p>Channel(信道)：传送信息的媒体（介质）</p>
@@ -235,7 +232,7 @@
 <br>
 </li>
 </ul>
-<h3 id="概念之二"><a class="header-anchor" href="#概念之二">¶</a>概念之二</h3>
+<h3 id="概念之二"><a class="header-anchor" href="#概念之二"></a>概念之二</h3>
 <ul>
 <li>
 <p>Simplex（单工） Transmission occurs in only one direction</p>
@@ -276,7 +273,7 @@
 </li>
 </ul>
 <br>
-<h3 id="信号传输中存在的一些问题"><a class="header-anchor" href="#信号传输中存在的一些问题">¶</a>信号传输中存在的一些问题</h3>
+<h3 id="信号传输中存在的一些问题"><a class="header-anchor" href="#信号传输中存在的一些问题"></a>信号传输中存在的一些问题</h3>
 <ul>
 <li>Signal received may differ from signal transmitted</li>
 <li>Analog - degradation of signal quality</li>
@@ -290,7 +287,7 @@
 </li>
 </ul>
 <br>
-<h3 id="带宽-Bandwidth"><a class="header-anchor" href="#带宽-Bandwidth">¶</a>带宽 Bandwidth</h3>
+<h3 id="带宽-Bandwidth"><a class="header-anchor" href="#带宽-Bandwidth"></a>带宽 Bandwidth</h3>
 <p>Range of frequencies transmitted without being strongly (0.5) attenuated is called bandwidth</p>
 <p>bandwidth is a physical propertyof the transmission medium, depends on</p>
 <ul>
@@ -299,8 +296,8 @@
 <li>length</li>
 </ul>
 <br>
-<h3 id="信道的最大数据速率的计算"><a class="header-anchor" href="#信道的最大数据速率的计算">¶</a>信道的最大数据速率的计算</h3>
-<h4 id="Nyquist-Bit-Rate-奈奎斯特公式"><a class="header-anchor" href="#Nyquist-Bit-Rate-奈奎斯特公式">¶</a>Nyquist Bit Rate 奈奎斯特公式</h4>
+<h3 id="信道的最大数据速率的计算"><a class="header-anchor" href="#信道的最大数据速率的计算"></a>信道的最大数据速率的计算</h3>
+<h4 id="Nyquist-Bit-Rate-奈奎斯特公式"><a class="header-anchor" href="#Nyquist-Bit-Rate-奈奎斯特公式"></a>Nyquist Bit Rate 奈奎斯特公式</h4>
 <p><strong>适用于无噪声信道</strong></p>
 <p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>C</mi><mo>=</mo><mn>2</mn><mi>B</mi><mo separator="true">⋅</mo><mi>l</mi><mi>o</mi><msub><mi>g</mi><mn>2</mn></msub><mi>V</mi><mspace linebreak="newline"></mspace><mspace linebreak="newline"></mspace><mi>C</mi><mo>:</mo><mtext>最大数据速率</mtext><mo stretchy="false">(</mo><mtext>比特</mtext><mi mathvariant="normal">/</mi><mtext>秒</mtext><mo stretchy="false">)</mo><mspace linebreak="newline"></mspace><mi>B</mi><mtext>：带宽</mtext><mspace linebreak="newline"></mspace><mi>V</mi><mtext>：信号包含的离散等级个数</mtext></mrow><annotation encoding="application/x-tex">C = 2B·log_2V
 \\\\
@@ -309,7 +306,7 @@ B：带宽\\
 V：信号包含的离散等级个数
 </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord">2</span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mpunct">⋅</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal">o</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span></span><span class="mspace newline"></span><span class="mspace newline"></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord cjk_fallback">最大数据速率</span><span class="mopen">(</span><span class="mord cjk_fallback">比特</span><span class="mord">/</span><span class="mord cjk_fallback">秒</span><span class="mclose">)</span></span><span class="mspace newline"></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mord cjk_fallback">：带宽</span></span><span class="mspace newline"></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="mord cjk_fallback">：信号包含的离散等级个数</span></span></span></span></span></p>
 <br>
-<h4 id="Shannon-Capacity-香农公式"><a class="header-anchor" href="#Shannon-Capacity-香农公式">¶</a>Shannon Capacity 香农公式</h4>
+<h4 id="Shannon-Capacity-香农公式"><a class="header-anchor" href="#Shannon-Capacity-香农公式"></a>Shannon Capacity 香农公式</h4>
 <p><strong>适用于带有噪声信道</strong></p>
 <p><strong>求的是上限，是理论最大值！！！</strong></p>
 <p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>C</mi><mo>=</mo><mi>B</mi><mo separator="true">⋅</mo><mi>l</mi><mi>o</mi><msub><mi>g</mi><mn>2</mn></msub><mo stretchy="false">(</mo><mn>1</mn><mo>+</mo><mfrac><mi>S</mi><mi>N</mi></mfrac><mo stretchy="false">)</mo><mspace linebreak="newline"></mspace><mi>C</mi><mo>:</mo><mtext>最大数据速率</mtext><mo stretchy="false">(</mo><mtext>比特</mtext><mi mathvariant="normal">/</mi><mtext>秒</mtext><mo stretchy="false">)</mo><mspace linebreak="newline"></mspace><mi>B</mi><mo>:</mo><mtext>带宽</mtext><mspace linebreak="newline"></mspace><mi>S</mi><mo>:</mo><mtext>信号功率</mtext><mspace linebreak="newline"></mspace><mi>N</mi><mo>:</mo><mtext>噪声功率</mtext></mrow><annotation encoding="application/x-tex">C=B·log_2(1+\frac{S}{N})\\
@@ -326,22 +323,22 @@ $$
 <br>
 <p>为了以防万一，建议两条式子都算过后，取较低值</p>
 <br>
-<h3 id="传输介质"><a class="header-anchor" href="#传输介质">¶</a>传输介质</h3>
-<h4 id="双绞线-twisted-pair"><a class="header-anchor" href="#双绞线-twisted-pair">¶</a>双绞线 twisted pair</h4>
+<h3 id="传输介质"><a class="header-anchor" href="#传输介质"></a>传输介质</h3>
+<h4 id="双绞线-twisted-pair"><a class="header-anchor" href="#双绞线-twisted-pair"></a>双绞线 twisted pair</h4>
 <ul>
 <li>模拟信号 电话线 1MHZ</li>
 <li>数字信号 网线 100Mbps</li>
 </ul>
 <p>螺旋交叉缠绕，防止信号干扰串音，且绕的密度越大，效果越好</p>
 <br>
-<h4 id="同轴电缆-coaxial-cable"><a class="header-anchor" href="#同轴电缆-coaxial-cable">¶</a>同轴电缆 coaxial cable</h4>
+<h4 id="同轴电缆-coaxial-cable"><a class="header-anchor" href="#同轴电缆-coaxial-cable"></a>同轴电缆 coaxial cable</h4>
 <ul>
 <li>模拟信号 CATV MHZ～GHZ</li>
 <li>数字信号 LAN、电话的交换机之间 Mbps</li>
 <li>比双绞线性能更好，抗干扰能力更强</li>
 </ul>
 <br>
-<h4 id="光纤"><a class="header-anchor" href="#光纤">¶</a>光纤</h4>
+<h4 id="光纤"><a class="header-anchor" href="#光纤"></a>光纤</h4>
 <p>全反射</p>
 <br>
 <p>接下来是<strong>无线传输介质 wireless transmission</strong></p>
@@ -350,16 +347,16 @@ $$
 <li>传输全方位</li>
 <li>信号衰减快，传输距离短</li>
 </ul>
-<h4 id="无线电传输-Radio-Transmission"><a class="header-anchor" href="#无线电传输-Radio-Transmission">¶</a>无线电传输 Radio Transmission</h4>
+<h4 id="无线电传输-Radio-Transmission"><a class="header-anchor" href="#无线电传输-Radio-Transmission"></a>无线电传输 Radio Transmission</h4>
 <p>wifi就是这个</p>
-<h4 id="微波传输-Microwave-Transmission"><a class="header-anchor" href="#微波传输-Microwave-Transmission">¶</a>微波传输 Microwave Transmission</h4>
-<h4 id="红外传输-Infrared-Transmission"><a class="header-anchor" href="#红外传输-Infrared-Transmission">¶</a>红外传输 Infrared Transmission</h4>
-<h4 id="光通信"><a class="header-anchor" href="#光通信">¶</a>光通信</h4>
-<h4 id="卫星"><a class="header-anchor" href="#卫星">¶</a>卫星</h4>
+<h4 id="微波传输-Microwave-Transmission"><a class="header-anchor" href="#微波传输-Microwave-Transmission"></a>微波传输 Microwave Transmission</h4>
+<h4 id="红外传输-Infrared-Transmission"><a class="header-anchor" href="#红外传输-Infrared-Transmission"></a>红外传输 Infrared Transmission</h4>
+<h4 id="光通信"><a class="header-anchor" href="#光通信"></a>光通信</h4>
+<h4 id="卫星"><a class="header-anchor" href="#卫星"></a>卫星</h4>
 <p>270ms延迟</p>
 <br>
 <hr>
-<h3 id="数字调制"><a class="header-anchor" href="#数字调制">¶</a>数字调制</h3>
+<h3 id="数字调制"><a class="header-anchor" href="#数字调制"></a>数字调制</h3>
 <table>
 <thead>
 <tr>
@@ -382,10 +379,10 @@ $$
 </tbody>
 </table>
 <br>
-<h4 id="QAM星云图"><a class="header-anchor" href="#QAM星云图">¶</a>QAM星云图</h4>
+<h4 id="QAM星云图"><a class="header-anchor" href="#QAM星云图"></a>QAM星云图</h4>
 <p><img src="https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/PostCalendar/202304250013464.JPG" alt="ComputerNetwork3.1"></p>
 <p>实际上就是通过控制相位与振幅，来控制一条波的信号等级</p>
-<h4 id="如何确保调制信号时同步？"><a class="header-anchor" href="#如何确保调制信号时同步？">¶</a>如何确保调制信号时同步？</h4>
+<h4 id="如何确保调制信号时同步？"><a class="header-anchor" href="#如何确保调制信号时同步？"></a>如何确保调制信号时同步？</h4>
 <ul>
 <li>
 <p>曼彻斯特编码Manchester encoding</p>
@@ -400,7 +397,7 @@ $$
 <br>
 <hr>
 <br>
-<h3 id="复用-multiplexing"><a class="header-anchor" href="#复用-multiplexing">¶</a>复用 multiplexing</h3>
+<h3 id="复用-multiplexing"><a class="header-anchor" href="#复用-multiplexing"></a>复用 multiplexing</h3>
 <p>Frequency Division Multiplexing（FDM，频分复用）</p>
 <p>Wavelength Division Multiplexing（WDM，波分复用）</p>
 <p>Time Division Multiplexing（TDM，时分复用）</p>
@@ -412,26 +409,26 @@ $$
 <br>
 <hr>
 <br>
-<h3 id="物理网：PSTN-固定电话系统"><a class="header-anchor" href="#物理网：PSTN-固定电话系统">¶</a>物理网：PSTN 固定电话系统</h3>
+<h3 id="物理网：PSTN-固定电话系统"><a class="header-anchor" href="#物理网：PSTN-固定电话系统"></a>物理网：PSTN 固定电话系统</h3>
 <p><img src="https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/ComputerNetwork/3/202304250015257.JPG" alt="ComputerNetwork3.3"></p>
 <p>Modem:数字信号转变为模拟信号</p>
 <p>Codec：模拟信号转变为数字信号</p>
 <p><img src="https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/ComputerNetwork/3/202304250015976.JPG" alt="ComputerNetwork3.4"></p>
 <p>ADSL可实现电话与网络同时进行通信</p>
 <br>
-<h3 id="物理网：电视网络系统"><a class="header-anchor" href="#物理网：电视网络系统">¶</a>物理网：电视网络系统</h3>
+<h3 id="物理网：电视网络系统"><a class="header-anchor" href="#物理网：电视网络系统"></a>物理网：电视网络系统</h3>
 <p>HFC：混合光纤同轴</p>
 <p>一部分是模拟信道，传电视数据，一部分上行+下行用于计算机</p>
 <br>
-<h3 id="交换"><a class="header-anchor" href="#交换">¶</a>交换</h3>
-<h4 id="电路交换"><a class="header-anchor" href="#电路交换">¶</a>电路交换</h4>
+<h3 id="交换"><a class="header-anchor" href="#交换"></a>交换</h3>
+<h4 id="电路交换"><a class="header-anchor" href="#电路交换"></a>电路交换</h4>
 <p>电话网</p>
 <ul>
 <li>面向连接型（物理连接）</li>
 <li>预先分配固定带宽资源</li>
 <li>路径预先选择</li>
 </ul>
-<h4 id="分组交换"><a class="header-anchor" href="#分组交换">¶</a>分组交换</h4>
+<h4 id="分组交换"><a class="header-anchor" href="#分组交换"></a>分组交换</h4>
 <ul>
 <li>需要先对数据进行分组</li>
 <li>发送不需要连接</li>
@@ -441,27 +438,14 @@ $$
 <p>两者的区别是：</p>
 <p><img src="https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/ComputerNetwork/3/202304250015326.JPG" alt="ComputerNetwork3.5"></p>
 <br>
-<h3 id="生活中物理层的例子"><a class="header-anchor" href="#生活中物理层的例子">¶</a>生活中物理层的例子</h3>
+<h3 id="生活中物理层的例子"><a class="header-anchor" href="#生活中物理层的例子"></a>生活中物理层的例子</h3>
 <p>IEEE802.3,10baseT</p>
 <p>以太网10M</p>
 <p>电气特性：曼彻斯特编码</p>
 <p>功能特性：1，2号一对负责sending，3，6号一对负责接收</p>
 <p>全双工</p>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://ichirinko.top">Ichirinko</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://ichirinko.top/2023/04/22/%E8%AE%A1%E7%BD%91%20%E7%AC%AC%E4%B8%89%E8%AE%B2%20%E7%89%A9%E7%90%86%E5%B1%82%202023.3.3+3.7+3.10+3.14/">https://ichirinko.top/2023/04/22/%E8%AE%A1%E7%BD%91%20%E7%AC%AC%E4%B8%89%E8%AE%B2%20%E7%89%A9%E7%90%86%E5%B1%82%202023.3.3+3.7+3.10+3.14/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://ichirinko.top" target="_blank">Ichirinko's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%AD%A6%E4%B9%A0/">学习</a><a class="post-meta__tags" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a></div><div class="post_share"><div class="social-share" data-image="https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/ComputerNetwork/4/202304250034505.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/04/23/%E8%AE%A1%E7%BD%91%20%E7%AC%AC%E5%9B%9B%E8%AE%B2%20%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82%203.14%20-%203.28/"><img class="prev-cover" src="https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/ComputerNetwork/4/202304250034505.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">计网 第四讲 数据链路层(3.14-3.28)</div></div></a></div><div class="next-post pull-right"><a href="/2023/04/21/%E8%AE%A1%E7%BD%91%20%E7%AC%AC%E4%BA%8C%E8%AE%B2%202023.2.28+3.3/"><img class="next-cover" src="https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/ComputerNetwork/4/202304250034505.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">计网 第二讲 (2023.2.28+3.3)</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2023/04/20/%E8%AE%A1%E7%BD%91%20%E7%AC%AC%E4%B8%80%E8%AE%B2%EF%BC%882023.2.21+2.24%EF%BC%89/" title="计网 第一讲（2023.2.21+2.24）"><img class="cover" src="https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/ComputerNetwork/4/202304250034505.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-04-20</div><div class="title">计网 第一讲（2023.2.21+2.24）</div></div></a></div><div><a href="/2023/04/21/%E8%AE%A1%E7%BD%91%20%E7%AC%AC%E4%BA%8C%E8%AE%B2%202023.2.28+3.3/" title="计网 第二讲 (2023.2.28+3.3)"><img class="cover" src="https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/ComputerNetwork/4/202304250034505.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-04-21</div><div class="title">计网 第二讲 (2023.2.28+3.3)</div></div></a></div><div><a href="/2023/04/23/%E8%AE%A1%E7%BD%91%20%E7%AC%AC%E5%9B%9B%E8%AE%B2%20%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82%203.14%20-%203.28/" title="计网 第四讲 数据链路层(3.14-3.28)"><img class="cover" src="https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/ComputerNetwork/4/202304250034505.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-04-23</div><div class="title">计网 第四讲 数据链路层(3.14-3.28)</div></div></a></div><div><a href="/2022/10/20/CSAPP-textbook1/" title="CSAPP 第一、二章笔记"><img class="cover" src="https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/CSAPP/1-6/202210200017696.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-10-20</div><div class="title">CSAPP 第一、二章笔记</div></div></a></div><div><a href="/2022/10/31/%E6%95%B0%E5%AD%97%E9%80%BB%E8%BE%911-3%E7%AB%A0%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="数字逻辑1-3章 复习笔记"><img class="cover" src="https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/%E6%95%B0%E7%94%B5/1-3/202210302345584.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-10-31</div><div class="title">数字逻辑1-3章 复习笔记</div></div></a></div><div><a href="/2022/11/01/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="数据结构1-3，5-6章 复习笔记"><img class="cover" src="https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/%E6%95%B0%E7%94%B5/1-3/202211020117590.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-11-01</div><div class="title">数据结构1-3，5-6章 复习笔记</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/img/202209122110798.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Ichirinko</div><div class="author-info__description">找点乐子做</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">40</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">22</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/ZYL-DF" target="_blank" title="Github"><i class="fab fa-github"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">2024,新年快乐!</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E5%8A%9F%E8%83%BD"><span class="toc-text">核心功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E6%95%B0%E6%8D%AE%E9%80%9A%E4%BF%A1%E6%A8%A1%E5%9E%8B%EF%BC%88%E7%94%B5%E8%AF%9D%E7%BD%91%EF%BC%89"><span class="toc-text">简单数据通信模型（电话网）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5"><span class="toc-text">概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5%E4%B9%8B%E4%BA%8C"><span class="toc-text">概念之二</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%A1%E5%8F%B7%E4%BC%A0%E8%BE%93%E4%B8%AD%E5%AD%98%E5%9C%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98"><span class="toc-text">信号传输中存在的一些问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%A6%E5%AE%BD-Bandwidth"><span class="toc-text">带宽 Bandwidth</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%A1%E9%81%93%E7%9A%84%E6%9C%80%E5%A4%A7%E6%95%B0%E6%8D%AE%E9%80%9F%E7%8E%87%E7%9A%84%E8%AE%A1%E7%AE%97"><span class="toc-text">信道的最大数据速率的计算</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Nyquist-Bit-Rate-%E5%A5%88%E5%A5%8E%E6%96%AF%E7%89%B9%E5%85%AC%E5%BC%8F"><span class="toc-text">Nyquist Bit Rate 奈奎斯特公式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Shannon-Capacity-%E9%A6%99%E5%86%9C%E5%85%AC%E5%BC%8F"><span class="toc-text">Shannon Capacity 香农公式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%A0%E8%BE%93%E4%BB%8B%E8%B4%A8"><span class="toc-text">传输介质</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%8C%E7%BB%9E%E7%BA%BF-twisted-pair"><span class="toc-text">双绞线 twisted pair</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%8C%E8%BD%B4%E7%94%B5%E7%BC%86-coaxial-cable"><span class="toc-text">同轴电缆 coaxial cable</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%89%E7%BA%A4"><span class="toc-text">光纤</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%97%A0%E7%BA%BF%E7%94%B5%E4%BC%A0%E8%BE%93-Radio-Transmission"><span class="toc-text">无线电传输 Radio Transmission</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BE%AE%E6%B3%A2%E4%BC%A0%E8%BE%93-Microwave-Transmission"><span class="toc-text">微波传输 Microwave Transmission</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BA%A2%E5%A4%96%E4%BC%A0%E8%BE%93-Infrared-Transmission"><span class="toc-text">红外传输 Infrared Transmission</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%89%E9%80%9A%E4%BF%A1"><span class="toc-text">光通信</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8D%AB%E6%98%9F"><span class="toc-text">卫星</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E5%AD%97%E8%B0%83%E5%88%B6"><span class="toc-text">数字调制</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#QAM%E6%98%9F%E4%BA%91%E5%9B%BE"><span class="toc-text">QAM星云图</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E7%A1%AE%E4%BF%9D%E8%B0%83%E5%88%B6%E4%BF%A1%E5%8F%B7%E6%97%B6%E5%90%8C%E6%AD%A5%EF%BC%9F"><span class="toc-text">如何确保调制信号时同步？</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%8D%E7%94%A8-multiplexing"><span class="toc-text">复用 multiplexing</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%A9%E7%90%86%E7%BD%91%EF%BC%9APSTN-%E5%9B%BA%E5%AE%9A%E7%94%B5%E8%AF%9D%E7%B3%BB%E7%BB%9F"><span class="toc-text">物理网：PSTN 固定电话系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%A9%E7%90%86%E7%BD%91%EF%BC%9A%E7%94%B5%E8%A7%86%E7%BD%91%E7%BB%9C%E7%B3%BB%E7%BB%9F"><span class="toc-text">物理网：电视网络系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%A4%E6%8D%A2"><span class="toc-text">交换</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%94%B5%E8%B7%AF%E4%BA%A4%E6%8D%A2"><span class="toc-text">电路交换</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%86%E7%BB%84%E4%BA%A4%E6%8D%A2"><span class="toc-text">分组交换</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%9F%E6%B4%BB%E4%B8%AD%E7%89%A9%E7%90%86%E5%B1%82%E7%9A%84%E4%BE%8B%E5%AD%90"><span class="toc-text">生活中物理层的例子</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/01/12/%E7%AE%97%E6%B3%95%20%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%EF%BC%88%E4%B8%89%EF%BC%89/" title="算法 期末复习（三）"><img src="https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/Opera_System/202401072250543.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="算法 期末复习（三）"/></a><div class="content"><a class="title" href="/2024/01/12/%E7%AE%97%E6%B3%95%20%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%EF%BC%88%E4%B8%89%EF%BC%89/" title="算法 期末复习（三）">算法 期末复习（三）</a><time datetime="2024-01-11T16:00:00.000Z" title="发表于 2024-01-12 00:00:00">2024-01-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/01/11/%E7%AE%97%E6%B3%95%20%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%EF%BC%88%E4%BA%8C%EF%BC%89/" title="算法 期末复习（二）"><img src="https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/Opera_System/202401072250542.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="算法 期末复习（二）"/></a><div class="content"><a class="title" href="/2024/01/11/%E7%AE%97%E6%B3%95%20%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%EF%BC%88%E4%BA%8C%EF%BC%89/" title="算法 期末复习（二）">算法 期末复习（二）</a><time datetime="2024-01-10T16:00:00.000Z" title="发表于 2024-01-11 00:00:00">2024-01-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/01/10/%E7%AE%97%E6%B3%95%20%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/" title="算法 期末复习（一）"><img src="https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/Opera_System/202401072247152.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="算法 期末复习（一）"/></a><div class="content"><a class="title" href="/2024/01/10/%E7%AE%97%E6%B3%95%20%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/" title="算法 期末复习（一）">算法 期末复习（一）</a><time datetime="2024-01-09T16:00:00.000Z" title="发表于 2024-01-10 00:00:00">2024-01-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/01/09/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%20%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/" title="操作系统 期末复习（八至十三章）"><img src="https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/Opera_System/202401052150765.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="操作系统 期末复习（八至十三章）"/></a><div class="content"><a class="title" href="/2024/01/09/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%20%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/" title="操作系统 期末复习（八至十三章）">操作系统 期末复习（八至十三章）</a><time datetime="2024-01-08T16:00:00.000Z" title="发表于 2024-01-09 00:00:00">2024-01-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/01/08/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%EF%BC%88%E4%B8%83%EF%BC%89%E7%9B%AE%E6%A0%87&amp;%E4%B8%AD%E9%97%B4%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90%E4%B8%8E%E4%BC%98%E5%8C%96/" title="编译原理 期末复习 中间&amp;目标代码生成与优化"><img src="https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/Opera_System/202401052144200.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="编译原理 期末复习 中间&amp;目标代码生成与优化"/></a><div class="content"><a class="title" href="/2024/01/08/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%EF%BC%88%E4%B8%83%EF%BC%89%E7%9B%AE%E6%A0%87&amp;%E4%B8%AD%E9%97%B4%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90%E4%B8%8E%E4%BC%98%E5%8C%96/" title="编译原理 期末复习 中间&amp;目标代码生成与优化">编译原理 期末复习 中间&amp;目标代码生成与优化</a><time datetime="2024-01-07T16:00:00.000Z" title="发表于 2024-01-08 00:00:00">2024-01-08</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/CSAPP/1-6/202210200028800.png')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Ichirinko</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text"><a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/""><span>粤ICP备2023003597号</span></a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script>var preloader = {
-  endLoading: () => {
-    document.body.style.overflow = 'auto';
-    document.getElementById('loading-box').classList.add("loaded")
-  },
-  initLoading: () => {
-    document.body.style.overflow = '';
-    document.getElementById('loading-box').classList.remove("loaded")
-
-  }
-}
-window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex/dist/contrib/copy-tex.min.js"></script><script>(() => {
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://ichirinko.top">Ichirinko</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://ichirinko.top/2023/04/22/%E8%AE%A1%E7%BD%91%20%E7%AC%AC%E4%B8%89%E8%AE%B2%20%E7%89%A9%E7%90%86%E5%B1%82%202023.3.3+3.7+3.10+3.14/">https://ichirinko.top/2023/04/22/%E8%AE%A1%E7%BD%91%20%E7%AC%AC%E4%B8%89%E8%AE%B2%20%E7%89%A9%E7%90%86%E5%B1%82%202023.3.3+3.7+3.10+3.14/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://ichirinko.top" target="_blank">Ichirinko's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%AD%A6%E4%B9%A0/">学习</a><a class="post-meta__tags" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a></div><div class="post_share"><div class="social-share" data-image="https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/ComputerNetwork/4/202304250034505.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/04/23/%E8%AE%A1%E7%BD%91%20%E7%AC%AC%E5%9B%9B%E8%AE%B2%20%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82%203.14%20-%203.28/" title="计网 第四讲 数据链路层(3.14-3.28)"><img class="cover" src="https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/ComputerNetwork/4/202304250034505.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">计网 第四讲 数据链路层(3.14-3.28)</div></div></a></div><div class="next-post pull-right"><a href="/2023/04/21/%E8%AE%A1%E7%BD%91%20%E7%AC%AC%E4%BA%8C%E8%AE%B2%202023.2.28+3.3/" title="计网 第二讲 (2023.2.28+3.3)"><img class="cover" src="https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/ComputerNetwork/4/202304250034505.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">计网 第二讲 (2023.2.28+3.3)</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2023/04/20/%E8%AE%A1%E7%BD%91%20%E7%AC%AC%E4%B8%80%E8%AE%B2%EF%BC%882023.2.21+2.24%EF%BC%89/" title="计网 第一讲（2023.2.21+2.24）"><img class="cover" src="https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/ComputerNetwork/4/202304250034505.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-04-20</div><div class="title">计网 第一讲（2023.2.21+2.24）</div></div></a></div><div><a href="/2023/04/21/%E8%AE%A1%E7%BD%91%20%E7%AC%AC%E4%BA%8C%E8%AE%B2%202023.2.28+3.3/" title="计网 第二讲 (2023.2.28+3.3)"><img class="cover" src="https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/ComputerNetwork/4/202304250034505.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-04-21</div><div class="title">计网 第二讲 (2023.2.28+3.3)</div></div></a></div><div><a href="/2023/04/23/%E8%AE%A1%E7%BD%91%20%E7%AC%AC%E5%9B%9B%E8%AE%B2%20%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82%203.14%20-%203.28/" title="计网 第四讲 数据链路层(3.14-3.28)"><img class="cover" src="https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/ComputerNetwork/4/202304250034505.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-04-23</div><div class="title">计网 第四讲 数据链路层(3.14-3.28)</div></div></a></div><div><a href="/2022/10/20/CSAPP-textbook1/" title="CSAPP 第一、二章笔记"><img class="cover" src="https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/CSAPP/1-6/202210200017696.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-10-20</div><div class="title">CSAPP 第一、二章笔记</div></div></a></div><div><a href="/2022/10/31/%E6%95%B0%E5%AD%97%E9%80%BB%E8%BE%911-3%E7%AB%A0%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="数字逻辑1-3章 复习笔记"><img class="cover" src="https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/%E6%95%B0%E7%94%B5/1-3/202210302345584.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-10-31</div><div class="title">数字逻辑1-3章 复习笔记</div></div></a></div><div><a href="/2022/11/01/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="数据结构1-3，5-6章 复习笔记"><img class="cover" src="https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/%E6%95%B0%E7%94%B5/1-3/202211020117590.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-11-01</div><div class="title">数据结构1-3，5-6章 复习笔记</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/img/202209122110798.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Ichirinko</div><div class="author-info__description">找点乐子做</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">41</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">25</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/ZYL-DF" target="_blank" title="Github"><i class="fab fa-github"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">2024,新年快乐!</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E5%8A%9F%E8%83%BD"><span class="toc-text">核心功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E6%95%B0%E6%8D%AE%E9%80%9A%E4%BF%A1%E6%A8%A1%E5%9E%8B%EF%BC%88%E7%94%B5%E8%AF%9D%E7%BD%91%EF%BC%89"><span class="toc-text">简单数据通信模型（电话网）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5"><span class="toc-text">概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5%E4%B9%8B%E4%BA%8C"><span class="toc-text">概念之二</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%A1%E5%8F%B7%E4%BC%A0%E8%BE%93%E4%B8%AD%E5%AD%98%E5%9C%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98"><span class="toc-text">信号传输中存在的一些问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%A6%E5%AE%BD-Bandwidth"><span class="toc-text">带宽 Bandwidth</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%A1%E9%81%93%E7%9A%84%E6%9C%80%E5%A4%A7%E6%95%B0%E6%8D%AE%E9%80%9F%E7%8E%87%E7%9A%84%E8%AE%A1%E7%AE%97"><span class="toc-text">信道的最大数据速率的计算</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Nyquist-Bit-Rate-%E5%A5%88%E5%A5%8E%E6%96%AF%E7%89%B9%E5%85%AC%E5%BC%8F"><span class="toc-text">Nyquist Bit Rate 奈奎斯特公式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Shannon-Capacity-%E9%A6%99%E5%86%9C%E5%85%AC%E5%BC%8F"><span class="toc-text">Shannon Capacity 香农公式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%A0%E8%BE%93%E4%BB%8B%E8%B4%A8"><span class="toc-text">传输介质</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%8C%E7%BB%9E%E7%BA%BF-twisted-pair"><span class="toc-text">双绞线 twisted pair</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%8C%E8%BD%B4%E7%94%B5%E7%BC%86-coaxial-cable"><span class="toc-text">同轴电缆 coaxial cable</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%89%E7%BA%A4"><span class="toc-text">光纤</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%97%A0%E7%BA%BF%E7%94%B5%E4%BC%A0%E8%BE%93-Radio-Transmission"><span class="toc-text">无线电传输 Radio Transmission</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BE%AE%E6%B3%A2%E4%BC%A0%E8%BE%93-Microwave-Transmission"><span class="toc-text">微波传输 Microwave Transmission</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BA%A2%E5%A4%96%E4%BC%A0%E8%BE%93-Infrared-Transmission"><span class="toc-text">红外传输 Infrared Transmission</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%89%E9%80%9A%E4%BF%A1"><span class="toc-text">光通信</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8D%AB%E6%98%9F"><span class="toc-text">卫星</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E5%AD%97%E8%B0%83%E5%88%B6"><span class="toc-text">数字调制</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#QAM%E6%98%9F%E4%BA%91%E5%9B%BE"><span class="toc-text">QAM星云图</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E7%A1%AE%E4%BF%9D%E8%B0%83%E5%88%B6%E4%BF%A1%E5%8F%B7%E6%97%B6%E5%90%8C%E6%AD%A5%EF%BC%9F"><span class="toc-text">如何确保调制信号时同步？</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%8D%E7%94%A8-multiplexing"><span class="toc-text">复用 multiplexing</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%A9%E7%90%86%E7%BD%91%EF%BC%9APSTN-%E5%9B%BA%E5%AE%9A%E7%94%B5%E8%AF%9D%E7%B3%BB%E7%BB%9F"><span class="toc-text">物理网：PSTN 固定电话系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%A9%E7%90%86%E7%BD%91%EF%BC%9A%E7%94%B5%E8%A7%86%E7%BD%91%E7%BB%9C%E7%B3%BB%E7%BB%9F"><span class="toc-text">物理网：电视网络系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%A4%E6%8D%A2"><span class="toc-text">交换</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%94%B5%E8%B7%AF%E4%BA%A4%E6%8D%A2"><span class="toc-text">电路交换</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%86%E7%BB%84%E4%BA%A4%E6%8D%A2"><span class="toc-text">分组交换</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%9F%E6%B4%BB%E4%B8%AD%E7%89%A9%E7%90%86%E5%B1%82%E7%9A%84%E4%BE%8B%E5%AD%90"><span class="toc-text">生活中物理层的例子</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/01/25/Chrome%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91%EF%BC%88%E4%B8%80%EF%BC%89%E6%A8%A1%E5%9D%97%E6%A6%82%E8%BF%B0/" title="Chrome扩展插件开发（一）模块概述"><img src="https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/Opera_System/202401251714162.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Chrome扩展插件开发（一）模块概述"/></a><div class="content"><a class="title" href="/2024/01/25/Chrome%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91%EF%BC%88%E4%B8%80%EF%BC%89%E6%A8%A1%E5%9D%97%E6%A6%82%E8%BF%B0/" title="Chrome扩展插件开发（一）模块概述">Chrome扩展插件开发（一）模块概述</a><time datetime="2024-01-24T16:00:00.000Z" title="发表于 2024-01-25 00:00:00">2024-01-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/01/12/%E7%AE%97%E6%B3%95%20%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%EF%BC%88%E4%B8%89%EF%BC%89/" title="算法 期末复习（三）"><img src="https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/Opera_System/202401072250543.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="算法 期末复习（三）"/></a><div class="content"><a class="title" href="/2024/01/12/%E7%AE%97%E6%B3%95%20%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%EF%BC%88%E4%B8%89%EF%BC%89/" title="算法 期末复习（三）">算法 期末复习（三）</a><time datetime="2024-01-11T16:00:00.000Z" title="发表于 2024-01-12 00:00:00">2024-01-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/01/11/%E7%AE%97%E6%B3%95%20%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%EF%BC%88%E4%BA%8C%EF%BC%89/" title="算法 期末复习（二）"><img src="https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/Opera_System/202401072250542.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="算法 期末复习（二）"/></a><div class="content"><a class="title" href="/2024/01/11/%E7%AE%97%E6%B3%95%20%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%EF%BC%88%E4%BA%8C%EF%BC%89/" title="算法 期末复习（二）">算法 期末复习（二）</a><time datetime="2024-01-10T16:00:00.000Z" title="发表于 2024-01-11 00:00:00">2024-01-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/01/10/%E7%AE%97%E6%B3%95%20%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/" title="算法 期末复习（一）"><img src="https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/Opera_System/202401072247152.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="算法 期末复习（一）"/></a><div class="content"><a class="title" href="/2024/01/10/%E7%AE%97%E6%B3%95%20%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/" title="算法 期末复习（一）">算法 期末复习（一）</a><time datetime="2024-01-09T16:00:00.000Z" title="发表于 2024-01-10 00:00:00">2024-01-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/01/09/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%20%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/" title="操作系统 期末复习（八至十三章）"><img src="https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/Opera_System/202401052150765.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="操作系统 期末复习（八至十三章）"/></a><div class="content"><a class="title" href="/2024/01/09/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%20%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/" title="操作系统 期末复习（八至十三章）">操作系统 期末复习（八至十三章）</a><time datetime="2024-01-08T16:00:00.000Z" title="发表于 2024-01-09 00:00:00">2024-01-09</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://ichirinko-blog-img-1.oss-cn-shenzhen.aliyuncs.com/Pic_res/CSAPP/1-6/202210200028800.png')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Ichirinko</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text"><a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/""><span>粤ICP备2023003597号</span></a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex/dist/contrib/copy-tex.min.js"></script><script>(() => {
   document.querySelectorAll('#article-container span.katex-display').forEach(item => {
     btf.wrap(item, 'div', { class: 'katex-wrap'})
   })
-})()</script></div><script defer="defer" id="fluttering_ribbon" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html><div id="sakana-widget" style="position:fixed;bottom:10px;right:10px;"></div><script>function initSakanaWidget() {
-new SakanaWidget().mount('#sakana-widget');
-}</script><script async="" onload="initSakanaWidget()" src="https://cdn.jsdelivr.net/npm/sakana-widget@2.2.1/lib/sakana.min.js"></script>
+})()</script></div><script defer="defer" id="fluttering_ribbon" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="algolia-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="search-wrap"><div id="algolia-search-input"></div><hr/><div id="algolia-search-results"><div id="algolia-hits"></div><div id="algolia-pagination"></div><div id="algolia-info"><div class="algolia-stats"></div><div class="algolia-poweredBy"></div></div></div></div></div><div id="search-mask"></div><script src="https://cdn.jsdelivr.net/npm/algoliasearch/dist/algoliasearch-lite.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instantsearch.js/dist/instantsearch.production.min.js"></script><script src="/js/search/algolia.js"></script></div></div></body></html>
